@@ -1,0 +1,18 @@
+<mat-toolbar [ngClass]="{'scrolled': isScrolled}">
+  <div class="content">
+    <div class="flex">
+      <a href="#">
+        <img [src]="isScrolled ? '../../../../assets/image/brand1.svg' : '../../../../assets/image/brand.svg'"
+          alt="brand rosa barros">
+      </a>
+      <div class="menu-links">
+        <a href="#" class="custom-button">INÍCIO</a>
+        <a href="#about" class="custom-button">SOBRE</a>
+        <a href="#my-job" class="custom-button">MEU TRABALHO</a>
+        <a href="#gallery" class="custom-button">GALERIA</a>
+        <a href="#events" class="custom-button">EVENTOS</a>
+        <a href="#contact" class="custom-button">CONTATO</a>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

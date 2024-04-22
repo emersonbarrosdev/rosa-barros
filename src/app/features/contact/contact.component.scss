@@ -1,0 +1,87 @@
+@import '../../../styles.scss';
+
+.content {
+    width: 100%;
+    max-width: 1280px;
+    padding: 80px 0;
+    margin: auto;
+    font-family: $fontPattern;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-flex {
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 2rem;
+    color: $earth;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    padding-top: 30px;
+}
+
+.mat-mdc-radio-button.mat-accent {
+    --mdc-radio-selected-hover-icon-color: #B25534;
+    --mdc-radio-selected-icon-color: #B25534;
+    --mdc-radio-selected-pressed-icon-color: #23372C;
+    --mat-radio-checked-ripple-color: #23372C;
+}
+
+.mat-mdc-radio-button~.mat-mdc-radio-button {
+    margin-left: 50px;
+}
+
+.forms {
+    width: 720px;
+}
+
+.full-name,
+.email,
+.phone,
+.event-type,
+.guests,
+.textArea {
+    width: 100%;
+}
+
+.forms .mat-mdc-raised-button {
+    width: 30%;
+    margin-top: 10px;
+    padding: 25px 0;
+    color: $beige;
+    background: $earth;
+}
+
+.forms .mat-mdc-raised-button:disabled {
+    margin-top: 10px;
+    background-color: gray;
+    color: white;
+}
+
+.carousel {
+    background: $beige;
+}
+
+/* Estilo para remover as setas de incremento e decremento */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}

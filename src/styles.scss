@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: fontPattern, sans-serif;
+}
+
+$forest-green: #23372C;
+$earth: #B25534;
+$beige: #F1E9D4;
+$fontPattern: 'montserrat';
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $earth;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $beige;
+}
+
+//CONFIGURAÇÃO SNACK-BAR
+:root {
+
+    .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    // .mat-mdc-snack-bar-container .mdc-snackbar__label {
+    //     color: var(--mdc-snackbar-supporting-text-color);
+    // }
+
+    .cdk-overlay-pane {
+        position: absolute;
+        width: 100%;
+    }
+
+    //MENSAGEM DE SUCESSO
+    .success-snack-bar {
+        --mdc-snackbar-container-color: #45c32f;
+        --mdc-snackbar-supporting-text-color: $forest-green;
+        text-align: center;
+    }
+
+    //MENSAGEM DE ALERTA
+    .alert-snack-bar {
+        --mdc-snackbar-container-color: #e5b804;
+        --mdc-snackbar-supporting-text-color: $forest-green;
+        text-align: center;
+    }
+
+    //MENSAGEM DE ERRO
+    .danger-snack-bar {
+        --mdc-snackbar-container-color: #c32f2f;
+        text-align: center;
+    }
+}

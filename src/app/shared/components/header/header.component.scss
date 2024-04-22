@@ -1,0 +1,102 @@
+@import '../../../../styles.scss';
+
+$transition-duration: 0.3s;
+$transition-timing-function: ease;
+
+a {
+  text-decoration: none;
+}
+
+.mat-toolbar {
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: all .5s ease-in-out;
+  background: none;
+}
+
+.content {
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a img {
+  width: 140px;
+}
+
+a img :hover {
+  cursor: pointer;
+}
+
+.menu-links a {
+  position: relative;
+  /* Necessário para o pseudo-elemento */
+}
+
+.menu-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  /* Inicialmente, começa do centro */
+  width: 0;
+  height: 0.1rem;
+  background: $earth;
+  transition: all 300ms ease-in-out;
+  transform: translateX(-50%);
+  /* Ajuste para o centro */
+}
+
+.menu-links a:hover::after {
+  width: 100%;
+  /* Largura igual ao tamanho do botão - padding */
+}
+
+.custom-button {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 20px;
+  color: $beige;
+  font-family: $fontPattern;
+  transition: color $transition-duration $transition-timing-function;
+}
+
+.custom-button:hover {
+  color: $earth;
+  background: $beige;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+/* QUANDO SCROLL ESTIVER ATIVO */
+.scrolled {
+  height: 70px;
+  background: $forest-green;
+  transition: all .3s ease-in-out;
+}
+
+.scrolled .custom-button {
+  color: $beige;
+}
+
+.scrolled .custom-button:hover {
+  color: $earth;
+  background: $beige;
+  cursor: pointer;
+}

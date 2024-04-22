@@ -1,0 +1,107 @@
+@import '../../../styles.scss';
+
+footer {
+    width: 100%;
+    margin: auto;
+    font-family: $fontPattern;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: $beige;
+}
+
+.content {
+    width: 1280px;
+    height: 400px;
+}
+
+.copyright {
+    width: 100%;
+    height: 85px;
+    background: #EFEFEF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #a8a8a8;
+}
+
+.flex {
+    width: 1280px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.card-title {
+    color: $earth;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-top: 50px;
+}
+
+h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+h4 {
+    margin: 0;
+    padding-left: 10px;
+    font-weight: 700;
+    color: $forest-green;
+}
+
+ul,
+a,
+li {
+    list-style-type: none;
+    padding: 3px 0;
+    margin: 0;
+    color: $forest-green;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all .3s ease-in-out;
+}
+
+li:hover {
+    color: $earth;
+    font-weight: 600;
+}
+
+.example-card {
+    max-width: 400px;
+    background: none;
+    box-shadow: none;
+}
+
+.example-card:hover {
+    cursor: pointer;
+}
+
+.mat-mdc-card-header {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.example-header-image {
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+
+.facebook-avatar {
+    background-image: url('../../../assets/image/icones/facebook.png');
+}
+
+.instagram-avatar {
+    margin-right: 20px;
+    background-image: url('../../../assets/image/icones/instagram.png');
+}
+
+.whatsapp-avatar {
+    background-image: url('../../../assets/image/icones/whatsapp.png');
+}
