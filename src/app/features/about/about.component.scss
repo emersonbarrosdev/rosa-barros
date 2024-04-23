@@ -1,10 +1,8 @@
 @import '../../../styles.scss';
 
-.content {
+.content-about {
     width: 100%;
-    max-width: 1280px;
-    margin: auto;
-    padding: 80px 0;
+    padding: 100px 0;
     font-family: $fontPattern;
 }
 
@@ -20,16 +18,8 @@ h2 {
     font-weight: 500;
 }
 
-.carousel-item {
-    border: none;
-    background:none;
-}
-
-.carousel {
+.banner-about {
+    width: 100%;
+    object-fit: cover;
     background: $earth;
-}
-
-.carousel-item img {
-    width: 100vw;
-    margin: auto;
 }

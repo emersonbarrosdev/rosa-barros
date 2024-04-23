@@ -1,30 +1,40 @@
 @import '../../../styles.scss';
 
-.content {
+.content-contact {
     width: 100%;
-    max-width: 1280px;
+    height: 100%;
     padding: 80px 0;
     margin: auto;
     font-family: $fontPattern;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.flex {
+.content-banner {
+    height: 100vh;
+    flex: 4;
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-.header-flex {
-    width: 720px;
+.banner-contact {
+    width: 100%;
+    object-fit: cover;
+    background: $earth;
+}
+
+.content-forms {
+    height: 100vh;
+    width: 100%;
+    flex: 6;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    font-weight: 500;
+    justify-content: center;
+    background-color: $beige;
 }
 
 h2 {
@@ -33,9 +43,9 @@ h2 {
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 300;
-    padding-top: 30px;
+    margin: 0;
 }
 
 .mat-mdc-radio-button.mat-accent {
@@ -50,7 +60,8 @@ h3 {
 }
 
 .forms {
-    width: 720px;
+    max-width: 100%;
+    text-align: center;
 }
 
 .full-name,
@@ -74,10 +85,6 @@ h3 {
     margin-top: 10px;
     background-color: gray;
     color: white;
-}
-
-.carousel {
-    background: $beige;
 }
 
 /* Estilo para remover as setas de incremento e decremento */

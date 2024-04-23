@@ -11,7 +11,7 @@ import { provideEnvironmentNgxMask } from 'ngx-mask';
 const SNACK_BAR_CONFIG: ValueProvider = {
   provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
   useValue: {
-    duration: 300000,
+    duration: 3000,
     horizontalPosition: 'center',
     verticalPosition: 'bottom',
   } as MatSnackBarConfig
