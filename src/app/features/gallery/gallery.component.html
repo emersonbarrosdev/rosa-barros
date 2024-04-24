@@ -1,22 +1,27 @@
 <div class="content-gallery">
     <div class="header-flex">
         <h2>GALERIA</h2>
-        Confira nossa galeria com fotos incríveis
+        <p class="text-center mt-3">
+            Confira nossa galeria com fotos incríveis de pratos deliciosos. De pratos gourmet a receitas caseiras, cada
+            imagem é uma celebração da gastronomia. Prepare-se para se deliciar visualmente com nossa seleção única.
+        </p>
     </div>
 
     <div class="container text-center">
         <div class="row row-cols-4">
-            <div class="col-4 mb-4" *ngFor="let item of activePhotos;index as i;" >
+            <div class="col-4 mb-4" *ngFor="let item of activePhotos;index as i;">
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <mat-card class="example-card image-container">
-                                <img [ngSrc]="'../../../assets/image/galeria/' + item + '.png'" style="position: relative;" fill loading="lazy" class="d-block" alt="...">
+                                <img [ngSrc]="'../../../assets/image/galeria/' + item + '.png'"
+                                    style="position: relative;" fill loading="lazy" class="d-block" alt="...">
                             </mat-card>
                         </div>
                         <div class="carousel-item">
                             <mat-card class="example-card image-container">
-                                <img [ngSrc]="'../../../assets/image/galeria/' + photos[photos.length - 1 - i] + '.png'"style="position: relative;" fill loading="lazy" class="d-block" alt="...">
+                                <img [ngSrc]="'../../../assets/image/galeria/' + photos[photos.length - 1 - i] + '.png'"
+                                    style="position: relative;" fill loading="lazy" class="d-block" alt="...">
                             </mat-card>
                         </div>
                     </div>
