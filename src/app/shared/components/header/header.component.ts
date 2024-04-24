@@ -13,11 +13,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 export class HeaderComponent {
 
   isScrolled = false;
+  isMenuOpen: boolean = false;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollPosition = window.scrollY > 150;
 
     this.isScrolled = scrollPosition;
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
   }
 }

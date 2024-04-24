@@ -5,7 +5,29 @@
         <img [src]="isScrolled ? '../../../../assets/image/brand1.svg' : '../../../../assets/image/brand.svg'"
           alt="brand rosa barros">
       </a>
-      <div class="menu-links">
+      <nav class="navbar navbar-dark bg-dark d-lg-none">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" (click)="toggleMenu()" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+      <div class="offcanvas offcanvas-end text-dark" [class.show]="isMenuOpen" tabindex="-1"
+        id="navbarToggleExternalContent">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">Menu</h5>
+          <button type="button" class="btn-close" (click)="toggleMenu()" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <a href="#" class="custom-button" (click)="closeMenu()">INÍCIO</a>
+          <a href="#about" class="custom-button" (click)="closeMenu()">SOBRE</a>
+          <a href="#my-job" class="custom-button" (click)="closeMenu()">MEU TRABALHO</a>
+          <a href="#gallery" class="custom-button" (click)="closeMenu()">GALERIA</a>
+          <a href="#events" class="custom-button" (click)="closeMenu()">EVENTOS</a>
+          <a href="#contact" class="custom-button" (click)="closeMenu()">CONTATO</a>
+        </div>
+      </div>
+      <div class="menu-links d-none d-lg-block">
         <a href="#" class="custom-button">INÍCIO</a>
         <a href="#about" class="custom-button">SOBRE</a>
         <a href="#my-job" class="custom-button">MEU TRABALHO</a>

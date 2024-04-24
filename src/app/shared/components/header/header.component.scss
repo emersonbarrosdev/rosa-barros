@@ -40,7 +40,6 @@ a img :hover {
 
 .menu-links a {
   position: relative;
-  /* Necessário para o pseudo-elemento */
 }
 
 .menu-links a::after {
@@ -48,18 +47,15 @@ a img :hover {
   position: absolute;
   bottom: 0;
   left: 50%;
-  /* Inicialmente, começa do centro */
   width: 0;
   height: 0.1rem;
   background: $earth;
   transition: all 300ms ease-in-out;
   transform: translateX(-50%);
-  /* Ajuste para o centro */
 }
 
 .menu-links a:hover::after {
   width: 100%;
-  /* Largura igual ao tamanho do botão - padding */
 }
 
 .custom-button {
@@ -103,4 +99,75 @@ a img :hover {
 
 .scrolled a img {
   width: 90px;
+}
+
+
+/* Estilo personalizado para abrir o menu para baixo */
+@media (max-width: 991.98px) {
+  .bg-dark {
+    --bs-bg-opacity: 0;
+    background-color: none !important;
+  }
+
+  .offcanvas,
+  .offcanvas-lg,
+  .offcanvas-md,
+  .offcanvas-sm,
+  .offcanvas-xl,
+  .offcanvas-xxl {
+    --bs-offcanvas-width: 220px;
+  }
+
+  .offcanvas-header {
+    height: 60px;
+    background-color: $earth;
+    color: $beige;
+  }
+
+  .offcanvas-body {
+    background-color: $forest-green;
+  }
+
+
+  .navbar-collapse .custom-button {
+    display: block;
+    padding: 1rem;
+    color: #f8f9fa;
+    transition: background-color 0.3s ease;
+  }
+
+  .navbar-collapse .custom-button:hover {
+    background-color: #495057;
+  }
+}
+
+
+
+/* Estilos para telas de 375x812px */
+@media only screen and (max-width: 920px) {
+  .mat-toolbar {
+    height: 60px;
+  }
+
+  .content {
+    max-width: 375px;
+  }
+
+  a img {
+    width: 90px;
+  }
+
+  .menu-links.d-lg-block {
+    display: none;
+  }
+
+  .collapse.d-lg-none {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .custom-button {
+    display: block;
+    margin-bottom: 5px;
+  }
 }

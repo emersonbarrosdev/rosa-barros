@@ -5,7 +5,6 @@
     height: 100vh;
     padding: 0;
     font-family: $fontPattern;
-    background-color: crimson;
 }
 
 .carousel-item {
@@ -47,3 +46,23 @@ a .mat-mdc-raised-button {
     color: $beige;
     background: $earth;
 }
+
+@media (max-width: 375px){
+    .banner {
+      top: 50%;
+    }
+  
+    .banner .name-title {
+      font-size: 1.5rem;
+    }
+  
+    .banner .subtitle {
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    a .mat-mdc-raised-button {
+      font-size: 0.8rem;
+    }
+  }
+  

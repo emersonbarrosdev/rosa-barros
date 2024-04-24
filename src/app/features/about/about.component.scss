@@ -2,7 +2,7 @@
 
 .content-about {
     width: 100%;
-    padding: 100px 0;
+    padding: 100px 0 50px 0;
     font-family: $fontPattern;
 }
 
@@ -21,4 +21,45 @@ h2 {
 .banner-about {
     width: 100%;
     object-fit: cover;
+}
+
+@media (max-width: 375px) {
+    .content-about {
+        padding: 70px 10px;
+    }
+
+    .row-cols-3 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-2,
+    .col-5 {
+        width: 100%;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        color: $earth;
+        margin-bottom: 1rem;
+    }
+
+    .banner-about img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-text.hidden {
+        display: none;
+    }
+
+    .toggle-btn {
+        background-color: $earth;
+        color: $beige;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
 }

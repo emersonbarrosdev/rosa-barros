@@ -2,7 +2,7 @@
     <div class="container text-left">
         <div class="row row-cols-3">
             <div class="col-2">
-                <h2 class="card-title">QUEM <br>SOU EU</h2>
+                <h2 class="card-title">SOBRE</h2>
             </div>
             <div class="col-5">
                 <p class="card-text">
@@ -21,7 +21,7 @@
                     vegetariana e vegana. Sua jornada de aprendizado contínuo é evidência de seu compromisso com
                     a excelência culinária e a busca pela perfeição em cada prato que cria.
                 </p>
-                <p class="card-text">
+                <p class="card-text" [hidden]="!showMore && isMobile">
                     Sua abordagem vai além de simplesmente preparar refeições; ela cria experiências sensoriais
                     que cativam os sentidos e contam histórias através dos sabores. Cada prato é uma obra-prima
                     cuidadosamente elaborada, refletindo não apenas sua habilidade técnica, mas também sua
@@ -29,13 +29,13 @@
                 </p>
             </div>
             <div class="col-5">
-                <p class="card-text">
+                <p class="card-text" [hidden]="!showMore && isMobile">
                     Fora da cozinha, Rosa é uma verdadeira embaixadora da cultura alimentar, promovendo a
                     importância da alimentação consciente e sustentável. Seu compromisso com ingredientes
                     frescos e de qualidade ecoa não apenas em seus pratos, mas também em seu engajamento com
                     produtores locais e práticas responsáveis.
                 </p>
-                <p class="card-text">
+                <p class="card-text" [hidden]="!showMore && isMobile">
                     Reconhecida por sua generosidade e vontade de compartilhar conhecimento, Rosa dedica seu
                     tempo a mentorar jovens chefs em ascensão e a apoiar iniciativas que promovem a inclusão e
                     diversidade na indústria gastronômica. Sua influência transcende fronteiras geográficas,
@@ -43,6 +43,7 @@
                     renomados. Sua visão visionária e paixão pela culinária continuam a inspirar e influenciar
                     uma nova geração de amantes da comida em todo o mundo.
                 </p>
+                <button *ngIf="isMobile" (click)="toggleShowMore()" class="toggle-btn">{{ showMore ? 'Mostrar menos' : 'Mostrar mais' }}</button>
             </div>
         </div>
     </div>
