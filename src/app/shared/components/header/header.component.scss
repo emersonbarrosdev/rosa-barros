@@ -86,7 +86,7 @@ a img :hover {
 
 /* QUANDO SCROLL ESTIVER ATIVO */
 .scrolled {
-  height: 70px;
+  height: 60px;
   background: $forest-green;
   transition: all .3s ease-in-out;
 }
@@ -99,4 +99,8 @@ a img :hover {
   color: $earth;
   background: $beige;
   cursor: pointer;
+}
+
+.scrolled a img {
+  width: 90px;
 }
