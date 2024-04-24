@@ -4,11 +4,13 @@
             alt="...">
     </div>
     <div class="content-forms">
-        <div class="text-center pt-3">
+        <div class="header-flex text-center">
             <h2>CONTATO</h2>
-            Entre em contato com a Personal Chef Rosa Barros.
+            <p class="text-center mt-3">
+                Entre em contato com a Personal Chef Rosa Barros.
+            </p>
         </div>
-        <div class="text-center pt-4">
+        <div class="text-center pt-3">
             <h3>Solicitar Orçamento?</h3>
             <mat-radio-group class="radio-button" aria-label="Select an option" [(ngModel)]="budgetRequestSelected">
                 <mat-radio-button value="1" (change)="showDisplayPrivacy = true">SIM</mat-radio-button>
@@ -23,7 +25,7 @@
             </mat-radio-group>
         </div>
         <div *ngIf="showDisplayForms && showDisplayPrivacy" class="forms">
-            <h3 class="m-3">Preencha o formulário e receba um orçamento personalizado.</h3>
+            <h3 class="m-3">Preencha o formulário.</h3>
             <form [formGroup]="form">
                 <div class="row">
                     <div class="col">

@@ -2,22 +2,22 @@
 
 .content-gallery {
   font-family: $fontPattern;
-    width: 100%;
-    padding: 100px 0;
-    margin: auto;
-    max-width: 1280px;
+  width: 100%;
+  padding: 100px 0;
+  margin: auto;
+  max-width: 1280px;
 }
 
 .example-card {
-    max-width: 400px;
+  max-width: 400px;
 }
 
 .header-flex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 30px;
-    font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+  font-weight: 500;
 }
 
 .carousel-item img {
@@ -31,18 +31,65 @@
 
 h2 {
   font-size: 2rem;
-    color: $earth;
+  color: $earth;
 }
 
 .image-container {
-    overflow: hidden;
-    transition: transform .5s ease-in-out;
+  overflow: hidden;
+  transition: transform .5s ease-in-out;
+}
+
+.image-container img {
+  width: 100%;
+}
+
+.image-container:hover {
+  transform: scale(1.2);
+}
+
+// Adicionando a query de mídia para telas menores que 375px
+@media (max-width: 375px) {
+  .example-card {
+    max-width: 300px;
+    margin: 20px;
   }
-  
-  .image-container img {
-    width: 100%;
+
+  .cards {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
   }
-  
-  .image-container:hover {
-    transform: scale(1.2);
+
+  .header-flex {
+    padding: 0;
   }
+
+  .header-flex p {
+    width: auto;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .row>* {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .row-cols-4 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .col-4 {
+    width: 50%;
+    max-width: 50%;
+  }
+
+  .mb-4 {
+    margin-bottom: 0 !important;
+  }
+}

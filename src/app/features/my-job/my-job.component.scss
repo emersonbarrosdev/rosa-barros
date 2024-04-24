@@ -57,4 +57,32 @@ h2 {
 mat-card-title {
     color: $earth;
 }
+
+// Adicionando a query de mídia para telas menores que 375px
+@media (max-width: 375px) {
+    .header-flex {
+        padding: 0;
+    }
+
+    .header-flex p {
+        width: auto;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    h2{
+        font-size: 1.5rem;
+    }
+
+    .example-card {
+        max-width: 300px;
+        margin: 20px;
+    }
+
+    .cards {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+    }
+}
   

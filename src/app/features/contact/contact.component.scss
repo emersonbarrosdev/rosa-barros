@@ -3,7 +3,7 @@
 .content-contact {
     width: 100%;
     height: 100%;
-    padding: 80px 0;
+    padding: 50px 0;
     margin: auto;
     font-family: $fontPattern;
     display: flex;
@@ -85,4 +85,41 @@ h3 {
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
+}
+
+// Adicionando a query de mídia para telas menores que 375px
+@media (max-width: 375px) {
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .header-flex {
+        padding: 0;
+        margin: 0;
+    }
+
+    .header-flex p {
+        width: auto;
+        text-align: center;
+        padding: 0 30px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .content-banner {
+        display: none;
+    }
+
+    .content-forms {
+        flex: 9;
+        padding: 0 10%;
+        margin: 20px 0;
+    }
+
+    .content-contact {
+        height: auto;
+        background-color: $beige;
+    }
 }

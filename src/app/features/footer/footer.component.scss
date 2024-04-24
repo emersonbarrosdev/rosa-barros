@@ -106,3 +106,77 @@ li:hover {
 .whatsapp-avatar {
     background-image: url('../../../assets/image/icones/whatsapp.png');
 }
+
+// Adicionando a query de mídia para telas menores que 375px
+@media (max-width: 375px) {
+    footer .content {
+        width: 100%;
+        height: auto;
+    }
+
+    footer .container {
+        width: 100%;
+        padding: 0;
+    }
+
+    footer .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .card-title {
+        padding-top: 30px;
+    }
+
+    footer .list-item {
+        margin-bottom: 10px;
+    }
+
+    footer .example-card {
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+
+    footer .flex {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .col-4 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .col-4 h2.card-title {
+        padding-top: 20px;
+    }
+
+    .col-4 h3 {
+        margin-bottom: 5px;
+    }
+
+    .example-card {
+        max-width: 80%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .example-card mat-card-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .whatsapp-avatar {
+        margin-right: 10px;
+    }
+
+    .col-4 h4 {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+}
