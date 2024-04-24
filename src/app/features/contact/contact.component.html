@@ -13,19 +13,12 @@
         <div class="text-center pt-3">
             <h3>Solicitar Orçamento?</h3>
             <mat-radio-group class="radio-button" aria-label="Select an option" [(ngModel)]="budgetRequestSelected">
-                <mat-radio-button value="1" (change)="showDisplayPrivacy = true">SIM</mat-radio-button>
-                <mat-radio-button value="2" (change)="showDisplayPrivacy = false">NÃO</mat-radio-button>
-            </mat-radio-group>
-        </div>
-        <div class="text-center pt-3" *ngIf="showDisplayPrivacy">
-            <h3>Deseja fornecer seus dados pessoais?</h3>
-            <mat-radio-group class="radio-button" aria-label="Select an option">
                 <mat-radio-button value="1" (change)="showDisplayForms = true">SIM</mat-radio-button>
-                <mat-radio-button value="2" (click)="openDialog()">NÃO</mat-radio-button>
+                <mat-radio-button value="2" (click)="openDialog()"
+                    (change)="showDisplayForms = false">NÃO</mat-radio-button>
             </mat-radio-group>
         </div>
-        <div *ngIf="showDisplayForms && showDisplayPrivacy" class="forms">
-            <h3 class="m-3">Preencha o formulário.</h3>
+        <div *ngIf="showDisplayForms" class="forms m-3">
             <form [formGroup]="form">
                 <div class="row">
                     <div class="col">
@@ -76,6 +69,11 @@
                         </mat-form-field>
                     </div>
                 </div>
+                <span *ngIf="form.valid">
+                    <small class="text-body-secondary">
+                        Ao clicar em enviar, você confirma que deseja fornecer seus dados pessoais.
+                    </small>
+                </span>
                 <button mat-raised-button type="submit" (click)="onSubmit()" [disabled]="form.invalid">ENVIAR</button>
             </form>
         </div>
