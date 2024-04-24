@@ -2,10 +2,12 @@
 
 .content-events {
     width: 100%;
-    max-width: 1280px;
-    margin: auto;
     padding: 100px 0;
     font-family: $fontPattern;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .header-flex {
@@ -34,4 +36,8 @@ h2 {
     color: $earth;
     font-size: 1.2rem;
     font-weight: 500;
+}
+
+.content-cards {
+    max-width: 1100px;
 }
