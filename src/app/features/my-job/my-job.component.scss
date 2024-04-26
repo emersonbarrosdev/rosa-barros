@@ -2,7 +2,7 @@
 
 .content-job {
     width: 100%;
-    padding: 100px 0;
+    padding-top: 100px;
     font-family: $fontPattern;
 }
 
@@ -29,6 +29,7 @@
 
 h2 {
     font-size: 2rem;
+    color: $earth;
 }
 
 .card-text {
@@ -60,6 +61,10 @@ mat-card-title {
 
 // Adicionando a query de mídia para telas menores que 375px
 @media (max-width: 375px) {
+    .content-job {
+        padding-top: 70px;
+    }
+
     .header-flex {
         padding: 0;
     }

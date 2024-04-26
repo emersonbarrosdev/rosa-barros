@@ -2,7 +2,7 @@
 
 .content-events {
     width: 100%;
-    padding: 100px 0;
+    padding-top: 100px;
     font-family: $fontPattern;
     align-items: center;
     justify-content: center;
@@ -70,5 +70,9 @@ h2 {
         display: flex;
         flex-direction: column;
         margin-top: 10px;
+    }
+
+    .content-events {
+        padding-top: 70px;
     }
 }

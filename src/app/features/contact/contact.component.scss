@@ -3,11 +3,11 @@
 .content-contact {
     width: 100%;
     height: 100%;
-    margin: auto;
     font-family: $fontPattern;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 100px;
 }
 
 .content-banner {
@@ -115,12 +115,13 @@ input[type=number]::-webkit-outer-spin-button {
         flex: 9;
         padding: 0 10%;
         margin: 20px 0;
+        height: auto;
     }
 
     .content-contact {
         height: auto;
         background-color: $beige;
-        padding: 50px 0;
+        padding: 100px 0;
     }
 
     .forms {
