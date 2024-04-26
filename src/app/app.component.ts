@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-
-
-
-
 import { RouterOutlet } from '@angular/router';
 import { AboutComponent } from './features/about/about.component';
 import { ContactComponent } from './features/contact/contact.component';
@@ -16,8 +12,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    HeaderComponent, 
-    HomeComponent, 
+    HeaderComponent,
+    HomeComponent,
     AboutComponent,
     MyJobComponent,
     GalleryComponent,
