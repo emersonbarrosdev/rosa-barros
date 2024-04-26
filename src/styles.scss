@@ -49,4 +49,12 @@ $fontPattern: 'montserrat';
         --mdc-snackbar-container-color: #c32f2f;
         text-align: center;
     }
+
+    .mdc-form-field > label {
+        color: $beige !important;
+    }
+
+    .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:not(:checked)+.mdc-radio__background .mdc-radio__outer-circle {
+        border-color: $beige !important;
+    }
 }

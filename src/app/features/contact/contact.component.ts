@@ -12,6 +12,7 @@ import { DialogComponent } from '../../shared/components/dialog/dialog.component
 import { SendMailService } from '../../shared/service/send-mail.service';
 import { NgxMaskDirective } from 'ngx-mask';
 import { NgOptimizedImage } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -28,7 +29,8 @@ import { NgOptimizedImage } from '@angular/common';
     MatDialogModule,
     DialogComponent,
     NgxMaskDirective,
-    NgOptimizedImage
+    NgOptimizedImage,
+    RouterLink
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
@@ -38,13 +40,13 @@ export class ContactComponent implements OnInit {
   form!: FormGroup;
   budgetRequestSelected = ''
   eventTypes = ['Social', 'Corporativo', 'Cultural', 'Temático'];
-  showDisplayPrivacy!: boolean;
   showDisplayForms!: boolean;
 
   constructor(
     private submitFormService: SendMailService,
     private matSnackBar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -78,10 +80,14 @@ export class ContactComponent implements OnInit {
   }
 
   openDirtyFormDialog() {
-    const dialogRef = this.dialog.open(DialogComponent);
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '400px',
+    });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.resetFormAndNavigate();
+      } else {
+        this.budgetRequestSelected = '1';
       }
     });
   }
@@ -89,7 +95,6 @@ export class ContactComponent implements OnInit {
   resetFormAndNavigate() {
     this.form.reset();
     this.budgetRequestSelected = '';
-    this.showDisplayPrivacy = false;
     this.showDisplayForms = false;
   }
 
@@ -101,6 +106,7 @@ export class ContactComponent implements OnInit {
             panelClass: 'success-snack-bar',
           });
           this.resetFormAndNavigate();
+          this.router.navigate(['/']);
         },
         error: err => {
           console.log('Erro ao enviar email', err)
@@ -115,5 +121,11 @@ export class ContactComponent implements OnInit {
         panelClass: 'alert-snack-bar',
       });
     }
+  }
+
+  onCancel() {
+    this.form.reset();
+    this.showDisplayForms = false
+    this.budgetRequestSelected = '';
   }
 }

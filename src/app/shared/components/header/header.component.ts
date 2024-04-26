@@ -1,12 +1,13 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatMenuModule, NgOptimizedImage],
+  imports: [CommonModule, MatToolbarModule, MatMenuModule, NgOptimizedImage, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -29,4 +30,5 @@ export class HeaderComponent {
   closeMenu() {
     this.isMenuOpen = false;
   }
+
 }

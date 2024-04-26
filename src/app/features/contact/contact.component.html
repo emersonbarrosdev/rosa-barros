@@ -1,17 +1,12 @@
 <div class="content-contact">
     <div class="content-banner">
-        <img ngSrc="../../../assets/image/banner04.png" style="position: relative;" fill priority class="d-block w100"
-            alt="...">
+        <img ngSrc="../../../assets/image/contato/contato03.png" style="position: relative;" fill priority
+            class="d-block w100" alt="...">
     </div>
     <div class="content-forms">
         <div class="header-flex text-center">
-            <h2>CONTATO</h2>
-            <p class="text-center mt-3">
-                Entre em contato com a Personal Chef Rosa Barros.
-            </p>
-        </div>
-        <div class="text-center pt-3">
-            <h3>Solicitar Orçamento?</h3>
+            <img src="../../../assets/image/contato/logo.png" class="brand-contact" alt="...">
+            <h2>Solicitar Orçamento?</h2>
             <mat-radio-group class="radio-button" aria-label="Select an option" [(ngModel)]="budgetRequestSelected">
                 <mat-radio-button value="1" (change)="showDisplayForms = true">SIM</mat-radio-button>
                 <mat-radio-button value="2" (click)="openDialog()">NÃO</mat-radio-button>
@@ -68,13 +63,16 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <span *ngIf="form.valid">
+                <span *ngIf="form.valid" class="d-block">
                     <small class="text-body-secondary">
                         Ao clicar em enviar, você confirma que deseja fornecer seus dados pessoais.
                     </small>
                 </span>
                 <button mat-raised-button type="submit" (click)="onSubmit()" [disabled]="form.invalid">ENVIAR</button>
             </form>
+        </div>
+        <div class="clickHome" *ngIf="!showDisplayForms">
+            <button mat-raised-button [routerLink]="['/']" *ngIf="!showDisplayForms">VOLTAR PARA HOME</button>
         </div>
     </div>
 </div>

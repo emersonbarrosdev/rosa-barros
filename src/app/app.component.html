@@ -1,8 +1,10 @@
-<app-header></app-header>
-<app-home id=""></app-home>
-<app-about id="about"></app-about>
-<app-my-job id="my-job"></app-my-job>
-<app-gallery id="gallery"></app-gallery>
-<app-events id="events"></app-events>
-<app-contact id="contact"></app-contact>
-<app-footer></app-footer>
+<div *ngIf="!isContact">
+    <app-header></app-header>
+    <app-home id=""></app-home>
+    <app-about id="about"></app-about>
+    <app-my-job id="my-job"></app-my-job>
+    <app-gallery id="gallery"></app-gallery>
+    <app-events id="events"></app-events>
+    <app-footer></app-footer>
+</div>
+<app-contact *ngIf="isContact"></app-contact>

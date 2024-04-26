@@ -7,7 +7,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 100px;
+    background-color: $forest-green;
+    color: $beige;
 }
 
 .content-banner {
@@ -19,15 +20,20 @@
     overflow: hidden;
 }
 
+
+.brand-contact {
+    width: 300px;
+    margin: 60px;
+}
+
 .content-forms {
-    padding-top: 100px;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     flex: 6;
-    align-items: center;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    background-color: $beige;
 }
 
 h2 {
@@ -66,6 +72,12 @@ h3 {
     width: 100%;
 }
 
+.content-forms .mat-mdc-raised-button {
+    margin-top: 10px;
+    color: $beige;
+    background: $forest-green;
+}
+
 .forms .mat-mdc-raised-button {
     width: 120px;
     margin-top: 10px;
@@ -85,6 +97,21 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
 }
+
+.clickHome {
+    position: absolute;
+    bottom: 50px;
+}
+
+.clickHome .mat-mdc-raised-button {
+    background: $beige;
+    color: $earth;
+}
+
+.text-body-secondary {
+    color: $beige !important;
+}
+
 
 // Adicionando a query de mídia para telas menores que 375px
 @media (max-width: 375px) {
@@ -115,13 +142,17 @@ input[type=number]::-webkit-outer-spin-button {
         flex: 9;
         padding: 0 10%;
         margin: 20px 0;
-        height: auto;
+        height: 100%;
+    }
+
+    .brand-contact {
+        width: 180px;
+        margin: 20px;
     }
 
     .content-contact {
-        height: auto;
-        background-color: $beige;
-        padding: 100px 0;
+        background-color: $forest-green;
+        padding-bottom: 30px;
     }
 
     .forms {
