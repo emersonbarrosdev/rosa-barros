@@ -5,7 +5,7 @@
     </div>
     <div class="content-forms">
         <div class="header-flex text-center">
-            <img src="../../../assets/image/contato/logo.png" class="brand-contact" alt="...">
+            <img *ngIf="!showDisplayForms" src="../../../assets/image/contato/logo.png" class="brand-contact" alt="...">
             <h2>Solicitar Orçamento?</h2>
             <mat-radio-group class="radio-button" aria-label="Select an option" [(ngModel)]="budgetRequestSelected">
                 <mat-radio-button value="1" (change)="showDisplayForms = true">SIM</mat-radio-button>

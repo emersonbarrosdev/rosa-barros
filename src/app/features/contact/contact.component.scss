@@ -2,7 +2,7 @@
 
 .content-contact {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     font-family: $fontPattern;
     display: flex;
     align-items: center;
@@ -12,7 +12,7 @@
 }
 
 .content-banner {
-    height: 100vh;
+    height: 100%;
     flex: 4;
     display: flex;
     justify-content: center;
