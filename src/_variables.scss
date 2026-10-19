@@ -1,0 +1,27 @@
+// Cores do Projeto Rosa Barros
+$forest-green: #23372C;
+$earth: #B25534;
+$beige: #F1E9D4;
+
+// Variações e tons auxiliares
+$forest-dark: #17241d;
+$forest-light: #324e3f;
+$earth-hover: #c86341;
+$earth-light: #d47b5c;
+$beige-light: #faf6ed;
+$beige-dark: #e5dac0;
+
+$white: #ffffff;
+$text-dark: #1a241e;
+$text-muted: #5e6d64;
+
+// Tipografia
+$font-main: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$fontPattern: $font-main;
+
+// Transições e Sombras
+$transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$shadow-sm: 0 2px 8px rgba(35, 55, 44, 0.08);
+$shadow-md: 0 8px 24px rgba(35, 55, 44, 0.12);
+$shadow-lg: 0 16px 40px rgba(35, 55, 44, 0.18);
+$shadow-earth: 0 8px 24px rgba(178, 85, 52, 0.25);

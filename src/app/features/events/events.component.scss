@@ -1,78 +1,176 @@
-@import '../../../styles.scss';
+@use '../../../variables' as *;
 
-.content-events {
+.events-section {
+  width: 100%;
+  padding: 6rem 0;
+  background-color: #ffffff;
+}
+
+.events-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-header {
+  margin-bottom: 3.5rem;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.event-card {
+  background: #faf7f2;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(35, 55, 44, 0.08);
+  box-shadow: $shadow-sm;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+    border-color: rgba(178, 85, 52, 0.35);
+
+    .event-img {
+      transform: scale(1.05);
+    }
+
+    .event-cta {
+      color: $earth;
+
+      .material-icons {
+        transform: translateX(6px);
+      }
+    }
+  }
+}
+
+.event-media {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+
+  .event-img {
     width: 100%;
-    padding: 100px 0;
-    font-family: $fontPattern;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-}
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
+  }
 
-.header-flex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 20px;
-    font-weight: 500;
-}
+  .event-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(35, 55, 44, 0.85);
+    backdrop-filter: blur(8px);
+    color: $beige;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
 
-.header-flex p {
-    width: 45rem;
-}
-
-h2 {
-    font-size: 2rem;
-    color: $earth;
-}
-
-.card {
-    font-weight: 500;
-    width: 100%;
-}
-
-.card-title {
-    color: $earth;
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
-.content-cards {
-    max-width: 64rem
-}
-
-// Adicionando a query de mídia para telas menores que 375px
-@media (max-width: 375px) {
-    .header-flex {
-        padding: 0;
+    &.tag-corporate {
+      background: $earth;
+      color: #ffffff;
     }
 
-    .header-flex p {
-        width: auto;
-        text-align: center;
-        padding: 0 20px;
+    &.tag-theme {
+      background: rgba(23, 36, 29, 0.9);
+      color: $beige;
+      border: 1px solid rgba(241, 233, 212, 0.3);
     }
+  }
+}
 
-    h2 {
-        font-size: 1.5rem;
-    }
+.event-body {
+  padding: 1.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
-    .content-cards .col {
-        width: 350px;
-    }
+.event-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: $forest-green;
+  margin-bottom: 0.75rem;
+}
 
-    .card {
-        margin-bottom: 10px;
-    }
+.event-desc {
+  font-size: 0.925rem;
+  color: #4a5951;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
 
-    .content-cards {
-        display: flex;
-        flex-direction: column;
-        margin-top: 10px;
-    }
+.event-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 
-    .content-events {
-        padding-top: 70px;
-    }
+  .pill {
+    background: rgba(35, 55, 44, 0.05);
+    color: $forest-green;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+    border: 1px solid rgba(35, 55, 44, 0.08);
+  }
+}
+
+.event-cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: $forest-green;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: all 0.25s ease;
+
+  .material-icons {
+    font-size: 1rem;
+    transition: transform 0.25s ease;
+  }
+}
+
+// Responsividade
+@media (max-width: 991.98px) {
+  .events-section {
+    padding: 4rem 0;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .event-media {
+    height: 190px;
+  }
+
+  .event-body {
+    padding: 1.5rem;
+  }
 }

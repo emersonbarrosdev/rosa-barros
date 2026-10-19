@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogComponent } from '../../shared/components/dialog/dialog.component';
 import { SendMailService } from '../../shared/service/send-mail.service';
 import { NgxMaskDirective } from 'ngx-mask';
-import { NgOptimizedImage } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -29,8 +29,8 @@ import { Router, RouterLink } from '@angular/router';
     MatDialogModule,
     DialogComponent,
     NgxMaskDirective,
-    NgOptimizedImage,
-    RouterLink
+    RouterLink,
+    MatIconModule
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
@@ -51,6 +51,8 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this.contactForms();
+    this.showDisplayForms = true;
+    this.budgetRequestSelected = '1';
   }
 
   contactForms() {

@@ -1,78 +1,197 @@
-<div class="content-contact">
-    <div class="content-banner">
-        <img ngSrc="../../../assets/image/contato/contato03.png" style="position: relative;" fill priority
-            class="d-block w100" alt="...">
-    </div>
-    <div class="content-forms">
-        <div class="header-flex text-center">
-            <img *ngIf="!showDisplayForms" src="../../../assets/image/contato/logo.png" class="brand-contact" alt="...">
-            <h2>Solicitar Orçamento?</h2>
-            <mat-radio-group class="radio-button" aria-label="Select an option" [(ngModel)]="budgetRequestSelected">
-                <mat-radio-button value="1" (change)="showDisplayForms = true">SIM</mat-radio-button>
-                <mat-radio-button value="2" (click)="openDialog()">NÃO</mat-radio-button>
+<div class="contact-page">
+  <div class="contact-layout">
+    <!-- Painel Lateral: Banner Visual e Informações -->
+    <aside class="contact-visual-panel d-none d-lg-flex">
+      <div class="visual-overlay"></div>
+      <img src="assets/image/contato/contato03.png" alt="Gastronomia Rosa Barros" class="visual-bg-img">
+
+      <div class="visual-content">
+        <a [routerLink]="['/']" class="visual-logo-link">
+          <img src="assets/image/brand1.svg" alt="Rosa Barros" class="visual-logo">
+        </a>
+
+        <div class="visual-badge">
+          <span>Experiência Sob Medida</span>
+        </div>
+
+        <h2 class="visual-title">Momentos Memoráveis Começam à Mesa</h2>
+
+        <p class="visual-desc">
+          Conte-nos sobre a sua celebração. Elaboramos uma proposta personalizada para que sua experiência gastronômica seja única, surpreendente e inesquecível.
+        </p>
+
+        <div class="visual-perks">
+          <div class="perk-item">
+            <span class="material-icons perk-icon">restaurant_menu</span>
+            <div>
+              <strong>Cardápio Autoral</strong>
+              <p>Elaborado conforme o perfil dos seus convidados</p>
+            </div>
+          </div>
+          <div class="perk-item">
+            <span class="material-icons perk-icon">schedule</span>
+            <div>
+              <strong>Pontualidade & Compromisso</strong>
+              <p>Planejamento detalhado em cada etapa</p>
+            </div>
+          </div>
+          <div class="perk-item">
+            <span class="material-icons perk-icon">thumb_up</span>
+            <div>
+              <strong>Ingredientes Selecionados</strong>
+              <p>Frescor, técnica e muito afeto</p>
+            </div>
+          </div>
+        </div>
+
+        <a [routerLink]="['/']" class="btn-back-home">
+          <span class="material-icons">arrow_back</span>
+          <span>Voltar para o Início</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Painel Principal: Formulário de Contato -->
+    <main class="contact-form-panel">
+      <!-- Topo Mobile com Botão Voltar -->
+      <div class="mobile-top-bar d-lg-none">
+        <a [routerLink]="['/']" class="btn-mobile-back">
+          <span class="material-icons">arrow_back</span>
+          <span>Voltar</span>
+        </a>
+        <img src="assets/image/brand.svg" alt="Rosa Barros" class="mobile-logo">
+      </div>
+
+      <div class="form-container-box">
+        <div class="form-header">
+          <span class="section-eyebrow">ATENDIMENTO EXCLUSIVO</span>
+          <h1 class="form-heading">Solicitar Orçamento</h1>
+          <p class="form-subheading">
+            Preencha os dados do seu evento e entraremos em contato com um menu exclusivo.
+          </p>
+
+          <!-- Toggle de Confirmação -->
+          <div class="radio-selector">
+            <span class="radio-label">Deseja solicitar orçamento?</span>
+            <mat-radio-group class="custom-radio-group" [(ngModel)]="budgetRequestSelected">
+              <mat-radio-button value="1" (change)="showDisplayForms = true">SIM</mat-radio-button>
+              <mat-radio-button value="2" (click)="openDialog()">NÃO</mat-radio-button>
             </mat-radio-group>
+          </div>
         </div>
-        <div *ngIf="showDisplayForms" class="forms m-3">
-            <form [formGroup]="form">
-                <div class="row">
-                    <div class="col">
-                        <mat-form-field class="full-name">
-                            <mat-label>Nome Completo</mat-label>
-                            <input matInput formControlName="fullName">
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <mat-form-field class="email">
-                            <mat-label>Email</mat-label>
-                            <input matInput placeholder="pat@example.com" formControlName="email">
-                        </mat-form-field>
-                    </div>
-                    <div class="col">
-                        <mat-form-field class="phone">
-                            <mat-label>Celular</mat-label>
-                            <input matInput type="text" formControlName="phone" mask="(00) 0000-0000||(00) 0 0000-0000"
-                                min="14" max="15" (input)="onPhoneInput($event)">
-                            <mat-hint align="end">com DDD</mat-hint>
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <mat-form-field class="event-type">
-                            <mat-label>Tipo de Evento</mat-label>
-                            <mat-select formControlName="eventType">
-                                <mat-option *ngFor="let type of eventTypes" [value]="type">{{ type }}</mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </div>
-                    <div class="col">
-                        <mat-form-field class="guests">
-                            <mat-label>Quantidade de Pessoas</mat-label>
-                            <input type="number" matInput formControlName="numberOfPeoples">
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <mat-form-field class="textArea">
-                            <mat-label>Descreva seu evento</mat-label>
-                            <textarea matInput #input maxlength="500" formControlName="message"></textarea>
-                            <mat-hint align="end">{{input.value.length}}/500</mat-hint>
-                        </mat-form-field>
-                    </div>
-                </div>
-                <span *ngIf="form.valid" class="d-block">
-                    <small class="text-body-secondary">
-                        Ao clicar em enviar, você confirma que deseja fornecer seus dados pessoais.
-                    </small>
-                </span>
-                <button mat-raised-button type="submit" (click)="onSubmit()" [disabled]="form.invalid">ENVIAR</button>
-            </form>
+
+        <!-- Formulário Reativo -->
+        <div *ngIf="showDisplayForms" class="form-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <!-- Nome Completo -->
+            <div class="mb-3">
+              <mat-form-field appearance="outline" class="w-100 custom-field">
+                <mat-label>Nome Completo *</mat-label>
+                <input matInput formControlName="fullName" placeholder="Ex: Maria Silva">
+                <mat-icon matPrefix>person</mat-icon>
+                <mat-error *ngIf="form.get('fullName')?.hasError('required')">Nome é obrigatório</mat-error>
+              </mat-form-field>
+            </div>
+
+            <!-- Email e Celular -->
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-md-6">
+                <mat-form-field appearance="outline" class="w-100 custom-field">
+                  <mat-label>E-mail *</mat-label>
+                  <input matInput type="email" formControlName="email" placeholder="seuemail@exemplo.com">
+                  <mat-icon matPrefix>email</mat-icon>
+                  <mat-error *ngIf="form.get('email')?.hasError('email')">E-mail inválido</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <mat-form-field appearance="outline" class="w-100 custom-field">
+                  <mat-label>Celular / WhatsApp</mat-label>
+                  <input matInput type="text" formControlName="phone"
+                         mask="(00) 0000-0000||(00) 0 0000-0000"
+                         placeholder="(11) 99999-9999"
+                         (input)="onPhoneInput($event)">
+                  <mat-icon matPrefix>phone</mat-icon>
+                  <mat-hint>com DDD</mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Tipo de Evento e Número de Pessoas -->
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-md-6">
+                <mat-form-field appearance="outline" class="w-100 custom-field">
+                  <mat-label>Tipo de Evento *</mat-label>
+                  <mat-select formControlName="eventType">
+                    <mat-option *ngFor="let type of eventTypes" [value]="type">{{ type }}</mat-option>
+                  </mat-select>
+                  <mat-icon matPrefix>celebration</mat-icon>
+                  <mat-error *ngIf="form.get('eventType')?.hasError('required')">Selecione o tipo de evento</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <mat-form-field appearance="outline" class="w-100 custom-field">
+                  <mat-label>Quantidade de Pessoas</mat-label>
+                  <input matInput type="number" formControlName="numberOfPeoples" min="1" placeholder="Ex: 15">
+                  <mat-icon matPrefix>groups</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Descrição / Detalhes -->
+            <div class="mb-3">
+              <mat-form-field appearance="outline" class="w-100 custom-field">
+                <mat-label>Descreva seu evento ou preferências</mat-label>
+                <textarea matInput #msgInput rows="4" maxlength="500" formControlName="message" 
+                          placeholder="Conte-nos a data desejada, local, preferências gastronômicas ou restrições..."></textarea>
+                <mat-hint align="end">{{ msgInput.value.length }} / 500</mat-hint>
+              </mat-form-field>
+            </div>
+
+            <!-- Termos e Envio -->
+            <div class="form-footer">
+              <p class="privacy-note">
+                <span class="material-icons lock-icon">lock</span>
+                Seus dados serão utilizados exclusivamente para elaboração e envio do seu orçamento gastronômico.
+              </p>
+
+              <div class="action-buttons">
+                <button mat-raised-button type="submit" class="btn-submit" [disabled]="form.invalid">
+                  <span class="material-icons">send</span>
+                  <span>ENVIAR SOLICITAÇÃO</span>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- WhatsApp Direto Alternativo -->
+          <div class="whatsapp-direct">
+            <span>Prefere conversar diretamente agora?</span>
+            <a href="https://api.whatsapp.com/send?phone=5511953991001" target="_blank" class="link-whatsapp">
+              <img src="assets/image/icones/whatsapp.png" alt="WhatsApp" class="wp-icon">
+              <span>Chamar no WhatsApp: <strong>(11) 95399-1001</strong></span>
+            </a>
+          </div>
         </div>
-        <div class="clickHome" *ngIf="!showDisplayForms">
-            <button mat-raised-button [routerLink]="['/']" *ngIf="!showDisplayForms">VOLTAR PARA HOME</button>
+
+        <!-- Tela se optou por NÃO solicitar agora -->
+        <div *ngIf="!showDisplayForms" class="optout-screen text-center">
+          <div class="optout-card">
+            <span class="material-icons optout-icon">restaurant</span>
+            <h3>Tudo bem!</h3>
+            <p>Quando estiver pronto para transformar seu próximo evento em uma experiência memorável, estaremos à sua disposição.</p>
+            <div class="d-flex gap-3 justify-content-center mt-4">
+              <button mat-raised-button class="btn-earth" (click)="showDisplayForms = true; budgetRequestSelected = '1'">
+                QUERO SOLICITAR AGORA
+              </button>
+              <a [routerLink]="['/']" class="btn-outline-beige" style="color: #23372C !important; border-color: #23372C !important;">
+                VOLTAR PARA HOME
+              </a>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
+    </main>
+  </div>
 </div>

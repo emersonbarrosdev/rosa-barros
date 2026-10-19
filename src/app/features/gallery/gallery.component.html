@@ -1,31 +1,68 @@
-<div class="content-gallery">
-    <div class="header-flex">
-        <h2>GALERIA</h2>
-        <p class="text-center mt-3">
-            Confira nossa galeria com fotos incríveis de pratos deliciosos. De pratos gourmet a receitas caseiras, cada
-            imagem é uma celebração da gastronomia. Prepare-se para se deliciar visualmente com nossa seleção única.
-        </p>
+<section class="gallery-section" id="gallery">
+  <div class="gallery-container">
+    <!-- Cabeçalho -->
+    <div class="section-header text-center">
+      <span class="section-eyebrow">PORTFÓLIO GASTRONÔMICO</span>
+      <h2 class="section-title">GALERIA DE CRIAÇÕES</h2>
+      <p class="section-lead">
+        Uma celebração visual da alta gastronomia. Cada prato é uma composição harmônica entre sabor autêntico, técnica refinada e apresentação impecável.
+      </p>
     </div>
 
-    <div class="container text-center">
-        <div class="row row-cols-4">
-            <div class="col-4 mb-4" *ngFor="let item of activePhotos;index as i;">
-                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <mat-card class="example-card image-container">
-                                <img [ngSrc]="'../../../assets/image/galeria/' + item + '.png'"
-                                    style="position: relative;" fill loading="lazy" class="d-block" alt="...">
-                            </mat-card>
-                        </div>
-                        <div class="carousel-item">
-                            <mat-card class="example-card image-container">
-                                <img [ngSrc]="'../../../assets/image/galeria/' + photos[photos.length - 1 - i] + '.png'"
-                                    style="position: relative;" fill loading="lazy" class="d-block" alt="...">
-                            </mat-card>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Grid de Imagens -->
+    <div class="gallery-grid">
+      <div *ngFor="let photo of visiblePhotos; let i = index" 
+           class="gallery-item"
+           (click)="openLightbox(i)">
+        <div class="image-frame">
+          <img [src]="'assets/image/galeria/' + photo + '.png'" 
+               [alt]="'Prato gastronômico ' + photo + ' por Rosa Barros'"
+               class="gallery-img"
+               loading="lazy">
+          <div class="gallery-overlay">
+            <span class="material-icons zoom-icon">zoom_in</span>
+            <span class="overlay-text">Visualizar Prato</span>
+          </div>
         </div>
+      </div>
     </div>
+
+    <!-- Botão de Expandir / Recolher Galeria -->
+    <div class="text-center mt-5">
+      <button type="button" class="btn-toggle-gallery" (click)="toggleShowAll()">
+        <span class="material-icons">{{ showAll ? 'grid_view' : 'collections' }}</span>
+        <span>{{ showAll ? 'Mostrar Menos Fotos' : 'Ver Galeria Completa (' + allPhotos.length + ' Pratos)' }}</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal Lightbox Interativo -->
+  <div *ngIf="selectedPhotoIndex !== null" class="lightbox-backdrop" (click)="closeLightbox()">
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <!-- Botão Fechar -->
+      <button class="lightbox-close" (click)="closeLightbox()" aria-label="Fechar visualização">
+        <span class="material-icons">close</span>
+      </button>
+
+      <!-- Botão Anterior -->
+      <button class="lightbox-prev" (click)="prevPhoto($event)" aria-label="Foto anterior">
+        <span class="material-icons">chevron_left</span>
+      </button>
+
+      <!-- Imagem em Destaque -->
+      <div class="lightbox-image-wrapper">
+        <img [src]="'assets/image/galeria/' + allPhotos[selectedPhotoIndex] + '.png'" 
+             [alt]="'Prato gastronômico ' + allPhotos[selectedPhotoIndex]"
+             class="lightbox-img">
+        <div class="lightbox-counter">
+          {{ selectedPhotoIndex + 1 }} de {{ allPhotos.length }}
+        </div>
+      </div>
+
+      <!-- Próximo Botão -->
+      <button class="lightbox-next" (click)="nextPhoto($event)" aria-label="Próxima foto">
+        <span class="material-icons">chevron_right</span>
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,54 +1,80 @@
-<div class="content-about">
-    <div class="container text-left">
-        <div class="row row-cols-3">
-            <div class="col-2">
-                <h2 class="card-title">SOBRE</h2>
+<section class="about-section" id="about">
+  <div class="about-container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <!-- Coluna da Esquerda: Título, Filosofia e Destaques -->
+      <div class="col-12 col-lg-5">
+        <div class="about-intro">
+          <span class="section-eyebrow">CONHEÇA A CHEF</span>
+          <h2 class="about-heading">A paixão por criar momentos inesquecíveis à mesa</h2>
+          
+          <div class="quote-card">
+            <span class="quote-icon material-icons">format_quote</span>
+            <p class="quote-text">
+              "A culinária é a arte de transformar ingredientes selecionados em memórias afetivas e celebrações inesquecíveis."
+            </p>
+            <span class="quote-author">— Rosa Barros</span>
+          </div>
+
+          <!-- Métricas / Diferenciais -->
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number">20+</span>
+              <span class="stat-label">Anos de Experiência</span>
             </div>
-            <div class="col-5">
-                <p class="card-text">
-                    <strong>Rosa Barros</strong> é uma talentosa e apaixonada Personal Chef, reconhecida por
-                    suas criações
-                    gastronômicas únicas que cativam os paladares mais exigentes. Com uma abordagem
-                    personalizada e atenta aos detalhes, ela combina técnicas refinadas com ingredientes frescos
-                    e de alta qualidade para oferecer experiências culinárias memoráveis. Sua dedicação à
-                    culinária, juntamente com seu toque criativo e autêntico, fazem dela uma referência na arte
-                    de encantar os sentidos através da comida.
-                </p>
-                <p class="card-text">
-                    Além disso, ao longo de mais de 20 anos de experiência, Rosa trabalhou em inúmeros
-                    restaurantes, churrascarias e casas de alto padrão, absorvendo a essência e os segredos de
-                    diferentes cozinhas ao estudar com chefs renomados da culinária brasileira, francesa,
-                    vegetariana e vegana. Sua jornada de aprendizado contínuo é evidência de seu compromisso com
-                    a excelência culinária e a busca pela perfeição em cada prato que cria.
-                </p>
-                <p class="card-text" [hidden]="!showMore && isMobile">
-                    Sua abordagem vai além de simplesmente preparar refeições; ela cria experiências sensoriais
-                    que cativam os sentidos e contam histórias através dos sabores. Cada prato é uma obra-prima
-                    cuidadosamente elaborada, refletindo não apenas sua habilidade técnica, mas também sua
-                    profunda conexão com os ingredientes e dedicação à arte culinária.
-                </p>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Serviço Personalizado</span>
             </div>
-            <div class="col-5">
-                <p class="card-text" [hidden]="!showMore && isMobile">
-                    Fora da cozinha, Rosa é uma verdadeira embaixadora da cultura alimentar, promovendo a
-                    importância da alimentação consciente e sustentável. Seu compromisso com ingredientes
-                    frescos e de qualidade ecoa não apenas em seus pratos, mas também em seu engajamento com
-                    produtores locais e práticas responsáveis.
-                </p>
-                <p class="card-text" [hidden]="!showMore && isMobile">
-                    Reconhecida por sua generosidade e vontade de compartilhar conhecimento, Rosa dedica seu
-                    tempo a mentorar jovens chefs em ascensão e a apoiar iniciativas que promovem a inclusão e
-                    diversidade na indústria gastronômica. Sua influência transcende fronteiras geográficas,
-                    alcançando um público global através de suas redes sociais e colaborações com outros chefs
-                    renomados. Sua visão visionária e paixão pela culinária continuam a inspirar e influenciar
-                    uma nova geração de amantes da comida em todo o mundo.
-                </p>
-                <button *ngIf="isMobile" (click)="toggleShowMore()" class="toggle-btn">{{ showMore ? 'Mostrar menos' : 'Mostrar mais' }}</button>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">Chef</span>
+              <span class="stat-label">Autoral & Versátil</span>
             </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Coluna da Direita: Narrativa Biográfica -->
+      <div class="col-12 col-lg-7">
+        <div class="about-bio">
+          <p class="bio-text lead-bio">
+            <strong>Rosa Barros</strong> é uma talentosa e apaixonada Personal Chef, reconhecida por suas criações gastronômicas únicas que encantam os paladares mais exigentes. Com uma abordagem personalizada e atenta a cada detalhe, ela combina técnicas refinadas com ingredientes frescos e de alta qualidade para oferecer experiências culinárias memoráveis.
+          </p>
+
+          <p class="bio-text">
+            Ao longo de mais de duas décadas de trajetória, Rosa atuou em renomados restaurantes, bistrôs e residências de alto padrão. Estudou com mestres da culinária brasileira, francesa, contemporânea, vegetariana e vegana — uma jornada contínua marcada pela dedicação à excelência e pelo respeito profundo aos ingredientes.
+          </p>
+
+          <!-- Parágrafos expandíveis no mobile -->
+          <div class="bio-expandable" [class.d-none]="isMobile && !showMore">
+            <p class="bio-text">
+              Sua abordagem vai além de preparar refeições: cria experiências sensoriais completas que despertam os sentidos. Cada menu é uma composição pensada para harmonizar perfeitamente com a atmosfera do seu evento ou intimidade do seu jantar.
+            </p>
+            <p class="bio-text">
+              Comprometida com a sustentabilidade e a valorização de produtores locais, Rosa também dedica tempo a mentorar novos talentos da cozinha, compartilhando com generosidade sua sabedoria e paixão pela gastronomia.
+            </p>
+          </div>
+
+          <div *ngIf="isMobile" class="mt-3">
+            <button type="button" (click)="toggleShowMore()" class="btn-toggle-bio">
+              <span>{{ showMore ? 'Mostrar menos' : 'Ler história completa' }}</span>
+              <span class="material-icons toggle-icon">{{ showMore ? 'expand_less' : 'expand_more' }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-<div class="banner-about">
-    <img ngSrc="../../../assets/image/banner01.png" style="position: relative;" fill priority class="d-block"
-        alt="...">
-</div>
+
+    <!-- Banner Fotográfico Emoldurado -->
+    <div class="about-banner-wrapper">
+      <div class="banner-frame">
+        <img src="assets/image/banner01.png" alt="Apresentação gastronômica sofisticada da Chef Rosa Barros" class="banner-img">
+        <div class="banner-overlay-caption">
+          <span class="material-icons caption-icon">restaurant</span>
+          <span>Sabor autêntico, apresentação impecável e serviço exclusivo em São Paulo e região.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

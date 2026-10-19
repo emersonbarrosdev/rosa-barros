@@ -1,0 +1,79 @@
+@use '../../../../variables' as *;
+
+.dialog-box {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.dialog-icon-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(178, 85, 52, 0.12);
+  color: $earth;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+
+  .material-icons {
+    font-size: 2rem;
+  }
+}
+
+.dialog-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: $forest-green;
+  margin: 0 0 0.5rem;
+  padding: 0 !important;
+}
+
+.dialog-content {
+  padding: 0 !important;
+  margin-bottom: 1.5rem !important;
+
+  p {
+    font-size: 0.925rem;
+    color: $text-muted;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center !important;
+  padding: 0 !important;
+
+  .btn-dialog-cancel {
+    font-family: $font-main;
+    font-weight: 600;
+    color: $forest-green;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    border-radius: 50px;
+    padding: 0.5rem 1.25rem;
+
+    &:hover {
+      background: rgba(35, 55, 44, 0.08);
+    }
+  }
+
+  .btn-dialog-confirm {
+    font-family: $font-main;
+    font-weight: 600;
+    background-color: $earth !important;
+    color: $beige !important;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+
+    &:hover {
+      background-color: $earth-hover !important;
+      color: #ffffff !important;
+    }
+  }
+}

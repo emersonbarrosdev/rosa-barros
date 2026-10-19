@@ -1,8 +1,13 @@
-<h2 mat-dialog-title>Deseja mesmo sair?</h2>
-<mat-dialog-content class="mat-typography">
-  <h3>Os dados preenchidos serão perdidos.</h3>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close>NÃO</button>
-  <button mat-raised-button [mat-dialog-close]="true">SIM</button>
-</mat-dialog-actions>
+<div class="dialog-box">
+  <div class="dialog-icon-circle">
+    <span class="material-icons">help_outline</span>
+  </div>
+  <h2 mat-dialog-title class="dialog-title">Deseja mesmo sair?</h2>
+  <mat-dialog-content class="dialog-content">
+    <p>As informações preenchidas no formulário serão perdidas caso você saia agora.</p>
+  </mat-dialog-content>
+  <mat-dialog-actions class="dialog-actions" align="end">
+    <button mat-button mat-dialog-close class="btn-dialog-cancel">CONTINUAR PREENCHENDO</button>
+    <button mat-raised-button [mat-dialog-close]="true" class="btn-dialog-confirm">SIM, QUERO SAIR</button>
+  </mat-dialog-actions>
+</div>

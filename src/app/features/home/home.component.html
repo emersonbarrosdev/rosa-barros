@@ -1,38 +1,69 @@
-<div class="content-home ">
-  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+<section class="hero-section">
+  <div id="homeHeroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+    <!-- Indicadores -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#homeHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#homeHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+
     <div class="carousel-inner">
+      <!-- Slide 1 -->
       <div class="carousel-item active">
-        <div class="banner">
-          <div class="name-title">ROSA BARROS</div>
-          <div class="subtitle">Sabores Sofisticado e Experiências Memoráveis</div>
-          <a href="#my-job"><button mat-raised-button>CONHEÇA</button></a>
+        <div class="hero-overlay"></div>
+        <img src="assets/image/foto-home-01.png" class="hero-bg-img" alt="Pratos sofisticados da Personal Chef Rosa Barros">
+        
+        <div class="hero-content-wrapper">
+          <div class="hero-content">
+            <span class="hero-badge">Alta Gastronomia Sob Medida</span>
+            <h1 class="hero-title">ROSA BARROS</h1>
+            <p class="hero-subtitle">Sabores Sofisticados & Experiências Memoráveis</p>
+            <p class="hero-description d-none d-md-block">
+              Menus exclusivos preparados com técnica apurada, ingredientes selecionados e o afeto da culinária autêntica para o seu momento especial.
+            </p>
+            <div class="hero-actions">
+              <a href="#my-job" class="btn-earth">CONHEÇA O TRABALHO</a>
+              <a href="/contact" class="btn-outline-beige">SOLICITAR ORÇAMENTO</a>
+            </div>
+          </div>
         </div>
-        <img src="../../../assets/image/foto-home-01.png" class="d-block" alt="...">
       </div>
+
+      <!-- Slide 2 -->
       <div class="carousel-item">
-        <div class="banner">
-          <div class="name-title">PERSONAL CHEF</div>
-          <p class="subtitle">
-            Permita-nos trazer a magia da culinária diretamente para sua casa,
-            evento ou ocasião especial. Sinta-se mimado(a) com um serviço exclusivo, personalizado e cheio de sabores
-            irresistíveis. Deixe-nos criar momentos memoráveis através da harmonia perfeita entre sabores, texturas e
-            aromas. Sua satisfação é nossa maior recompensa. Desfrute de momentos extraordinários com o talento e
-            dedicação da nossa Personal Chef Rosa Barros.
-          </p>
-          <a href="#about"><button mat-raised-button>SAIBA MAIS</button></a>
+        <div class="hero-overlay"></div>
+        <img src="assets/image/foto-home-02.png" class="hero-bg-img" alt="Personal Chef Rosa Barros preparando pratos">
+        
+        <div class="hero-content-wrapper">
+          <div class="hero-content">
+            <span class="hero-badge">Experiência Exclusiva</span>
+            <h2 class="hero-title">PERSONAL CHEF</h2>
+            <p class="hero-subtitle">A magia da alta culinária no conforto do seu lar ou evento</p>
+            <p class="hero-description">
+              Permita-nos trazer o requinte dos melhores restaurantes diretamente para a sua casa. Momentos extraordinários através da harmonia perfeita entre sabores, texturas e aromas.
+            </p>
+            <div class="hero-actions">
+              <a href="#about" class="btn-earth">SOBRE A CHEF</a>
+              <a href="https://api.whatsapp.com/send?phone=5511953991001" target="_blank" class="btn-outline-beige">FALAR NO WHATSAPP</a>
+            </div>
+          </div>
         </div>
-        <img src="../../../assets/image/foto-home-02.png" class="d-block" alt="...">
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-      data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+
+    <!-- Controles -->
+    <button class="carousel-control-prev custom-control" type="button" data-bs-target="#homeHeroCarousel" data-bs-slide="prev" aria-label="Slide anterior">
+      <span class="material-icons">chevron_left</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-      data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
+    <button class="carousel-control-next custom-control" type="button" data-bs-target="#homeHeroCarousel" data-bs-slide="next" aria-label="Próximo slide">
+      <span class="material-icons">chevron_right</span>
     </button>
+
+    <!-- Indicador de Scroll Suave -->
+    <a href="#about" class="scroll-indicator" aria-label="Rolar para baixo">
+      <span class="mouse">
+        <span class="wheel"></span>
+      </span>
+      <span class="material-icons chevron">keyboard_arrow_down</span>
+    </a>
   </div>
-</div>
+</section>

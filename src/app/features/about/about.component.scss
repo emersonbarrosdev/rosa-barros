@@ -1,65 +1,231 @@
-@import '../../../styles.scss';
+@use '../../../variables' as *;
 
-.content-about {
-    width: 100%;
-    padding: 100px 0 50px 0;
-    font-family: $fontPattern;
+.about-section {
+  width: 100%;
+  padding: 6rem 0 3rem;
+  background-color: #faf7f2;
 }
 
-h2 {
-    font-size: 2rem;
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-.card-title {
+.about-intro {
+  .section-eyebrow::after {
+    margin: 6px 0 0;
+  }
+}
+
+.about-heading {
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+  color: $forest-green;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0.75rem 0 1.5rem;
+}
+
+.quote-card {
+  position: relative;
+  background-color: #ffffff;
+  border-left: 4px solid $earth;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 12px 12px 0;
+  box-shadow: $shadow-sm;
+  margin-bottom: 2rem;
+
+  .quote-icon {
+    font-size: 1.75rem;
     color: $earth;
+    opacity: 0.35;
+    position: absolute;
+    top: 10px;
+    right: 12px;
+  }
+
+  .quote-text {
+    font-style: italic;
+    color: $forest-green;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 0.5rem;
+  }
+
+  .quote-author {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: $earth;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
 }
 
-.card-text {
-    font-weight: 500;
+.about-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(35, 55, 44, 0.04);
+  border: 1px solid rgba(35, 55, 44, 0.08);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-top: 1.5rem;
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $earth;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $forest-green;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 36px;
+    background-color: rgba(35, 55, 44, 0.12);
+  }
 }
 
-.banner-about {
-    width: 100%;
-    object-fit: cover;
-}
+// Biografia
+.about-bio {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2.25rem;
+  box-shadow: $shadow-sm;
+  border: 1px solid rgba(35, 55, 44, 0.06);
 
-@media (max-width: 375px) {
-    .content-about {
-        padding: 70px 10px;
+  .bio-text {
+    font-size: 0.975rem;
+    line-height: 1.8;
+    color: #33443a;
+    margin-bottom: 1.25rem;
+
+    &:last-child {
+      margin-bottom: 0;
     }
 
-    .row-cols-3 {
-        display: flex;
-        flex-direction: column;
-    }
+    &.lead-bio {
+      font-size: 1.05rem;
+      color: $forest-green;
 
-    .col-2,
-    .col-5 {
-        width: 100%;
-    }
-
-    .card-title {
-        font-size: 1.5rem;
+      strong {
         color: $earth;
-        margin-bottom: 1rem;
+        font-weight: 700;
+      }
     }
+  }
+}
 
-    .banner-about img {
-        width: 100%;
-        height: auto;
-    }
+.btn-toggle-bio {
+  background: rgba(178, 85, 52, 0.08);
+  color: $earth;
+  border: 1px solid rgba(178, 85, 52, 0.2);
+  padding: 0.6rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 
-    .card-text.hidden {
-        display: none;
-    }
+  &:hover {
+    background: $earth;
+    color: #ffffff;
+  }
+}
 
-    .toggle-btn {
-        background-color: $earth;
-        color: $beige;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 20px;
+// Banner Fotográfico
+.about-banner-wrapper {
+  margin-top: 4rem;
+}
+
+.banner-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+
+  .banner-img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  &:hover .banner-img {
+    transform: scale(1.02);
+  }
+
+  .banner-overlay-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, rgba(23, 36, 29, 0) 0%, rgba(23, 36, 29, 0.85) 100%);
+    color: $beige;
+    padding: 2rem 1.5rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    .caption-icon {
+      color: $earth;
+      font-size: 1.25rem;
     }
+  }
+}
+
+// Responsividade
+@media (max-width: 991.98px) {
+  .about-section {
+    padding: 4rem 0 2rem;
+  }
+
+  .about-bio {
+    padding: 1.5rem;
+  }
+
+  .about-banner-wrapper {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-stats {
+    flex-direction: column;
+    gap: 12px;
+    padding: 1rem;
+
+    .stat-divider {
+      width: 60%;
+      height: 1px;
+    }
+  }
+
+  .banner-overlay-caption {
+    font-size: 0.8rem;
+    padding: 1.5rem 1rem 1rem;
+  }
 }

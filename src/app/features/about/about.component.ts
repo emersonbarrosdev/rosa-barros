@@ -1,35 +1,49 @@
-import { ChangeDetectorRef, Component, HostListener } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { NgOptimizedImage, CommonModule } from '@angular/common';
 import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, NgOptimizedImage],
+  imports: [CommonModule, MatCardModule, MatButtonModule],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
-export class AboutComponent {
-
+export class AboutComponent implements OnInit, OnDestroy {
   showMore: boolean = false;
-  isSmallScreen: MediaQueryList;
-  
+  private mobileQueryListener: () => void;
+  mobileQuery: MediaQueryList;
+
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher
-  ) { 
-    this.isSmallScreen = media.matchMedia('(max-width: 375px)');
-    this.isSmallScreen.addListener(() => changeDetectorRef.detectChanges());
+  ) {
+    this.mobileQuery = this.media.matchMedia('(max-width: 768px)');
+    this.mobileQueryListener = () => this.changeDetectorRef.detectChanges();
+    if (this.mobileQuery.addEventListener) {
+      this.mobileQuery.addEventListener('change', this.mobileQueryListener);
+    } else {
+      this.mobileQuery.addListener(this.mobileQueryListener);
+    }
+  }
+
+  ngOnInit(): void {}
+
+  ngOnDestroy(): void {
+    if (this.mobileQuery.removeEventListener) {
+      this.mobileQuery.removeEventListener('change', this.mobileQueryListener);
+    } else {
+      this.mobileQuery.removeListener(this.mobileQueryListener);
+    }
   }
 
   get isMobile(): boolean {
-    return this.isSmallScreen.matches;
+    return this.mobileQuery.matches;
   }
 
   toggleShowMore() {
     this.showMore = !this.showMore;
-    console.log('Mostrar mais:', this.showMore);
   }
 }

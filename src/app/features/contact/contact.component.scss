@@ -1,162 +1,381 @@
-@import '../../../styles.scss';
+@use '../../../variables' as *;
 
-.content-contact {
-    width: 100%;
-    height: 100vh;
-    font-family: $fontPattern;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $forest-green;
-    color: $beige;
+.contact-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #faf7f2;
+  display: flex;
 }
 
-.content-banner {
-    height: 100%;
-    flex: 4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+.contact-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
 }
 
+// Painel Lateral Visual (Desktop)
+.contact-visual-panel {
+  flex: 5;
+  position: relative;
+  background-color: $forest-green;
+  overflow: hidden;
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: $beige;
 
-.brand-contact {
-    width: 300px;
-    margin: 60px;
-}
-
-.content-forms {
-    height: 100%;
-    width: 100%;
-    flex: 6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-h2 {
-    font-size: 2rem;
-    color: $earth;
-}
-
-h3 {
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin: 0;
-}
-
-.mat-mdc-radio-button.mat-accent {
-    --mdc-radio-selected-hover-icon-color: #B25534;
-    --mdc-radio-selected-icon-color: #B25534;
-    --mdc-radio-selected-pressed-icon-color: #23372C;
-    --mat-radio-checked-ripple-color: #23372C;
-}
-
-.mat-mdc-radio-button~.mat-mdc-radio-button {
-    margin-left: 50px;
-}
-
-.forms {
-    width: 70%;
-    text-align: center;
-}
-
-.full-name,
-.email,
-.phone,
-.event-type,
-.guests,
-.textArea {
-    width: 100%;
-}
-
-.content-forms .mat-mdc-raised-button {
-    margin-top: 10px;
-    color: $beige;
-    background: $forest-green;
-}
-
-.forms .mat-mdc-raised-button {
-    width: 120px;
-    margin-top: 10px;
-    padding: 25px 0;
-    color: $beige;
-    background: $earth;
-}
-
-.forms .mat-mdc-raised-button:disabled {
-    margin-top: 10px;
-    background-color: gray;
-    color: white;
-}
-
-/* Estilo para remover as setas de incremento e decremento */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-}
-
-.clickHome {
+  .visual-bg-img {
     position: absolute;
-    bottom: 50px;
-}
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+  }
 
-.clickHome .mat-mdc-raised-button {
-    background: $beige;
-    color: $earth;
-}
+  .visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(23, 36, 29, 0.95) 0%, rgba(35, 55, 44, 0.85) 100%);
+    z-index: 1;
+  }
 
-.text-body-secondary {
-    color: $beige !important;
-}
+  .visual-content {
+    position: relative;
+    z-index: 2;
+    max-width: 480px;
+    margin: 0 auto;
+  }
 
+  .visual-logo-link {
+    display: inline-block;
+    margin-bottom: 2.5rem;
+  }
 
-// Adicionando a query de mídia para telas menores que 375px
-@media (max-width: 375px) {
-    .card {
-        margin-bottom: 20px;
-    }
+  .visual-logo {
+    width: 160px;
+    height: auto;
+  }
 
-    .header-flex {
-        padding: 0;
-        margin: 0;
-    }
+  .visual-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background: rgba(178, 85, 52, 0.25);
+    border: 1px solid rgba(178, 85, 52, 0.5);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $beige;
+    margin-bottom: 1.25rem;
+  }
 
-    .header-flex p {
-        width: auto;
-        text-align: center;
-        padding: 0 30px;
-    }
+  .visual-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
 
-    h2 {
+  .visual-desc {
+    font-size: 0.95rem;
+    color: rgba(241, 233, 212, 0.85);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .visual-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+
+    .perk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+
+      .perk-icon {
+        color: $earth;
         font-size: 1.5rem;
+        background: rgba(241, 233, 212, 0.1);
+        padding: 8px;
+        border-radius: 50%;
+      }
+
+      strong {
+        display: block;
+        color: #ffffff;
+        font-size: 0.925rem;
+      }
+
+      p {
+        margin: 2px 0 0;
+        font-size: 0.825rem;
+        color: rgba(241, 233, 212, 0.75);
+      }
+    }
+  }
+
+  .btn-back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: $beige;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.6rem 1.2rem;
+    background: rgba(241, 233, 212, 0.1);
+    border: 1px solid rgba(241, 233, 212, 0.2);
+    border-radius: 50px;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background: $earth;
+      color: #ffffff;
+      border-color: $earth;
+      transform: translateX(-4px);
+    }
+  }
+}
+
+// Painel do Formulário (Direita)
+.contact-form-panel {
+  flex: 7;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.mobile-top-bar {
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  .btn-mobile-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: $forest-green;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.85rem;
+    background: rgba(35, 55, 44, 0.08);
+    border-radius: 50px;
+  }
+
+  .mobile-logo {
+    width: 110px;
+    height: auto;
+  }
+}
+
+.form-container-box {
+  width: 100%;
+  max-width: 620px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.75rem 2.5rem;
+  box-shadow: $shadow-md;
+  border: 1px solid rgba(35, 55, 44, 0.08);
+}
+
+.form-header {
+  margin-bottom: 2rem;
+
+  .form-heading {
+    font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+    color: $forest-green;
+    font-weight: 700;
+    margin: 0.5rem 0 0.5rem;
+  }
+
+  .form-subheading {
+    font-size: 0.925rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Radio Selector
+.radio-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #faf7f2;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(35, 55, 44, 0.1);
+
+  .radio-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $forest-green;
+  }
+
+  .custom-radio-group {
+    display: flex;
+    gap: 1.25rem;
+  }
+}
+
+// Estilos dos campos
+.custom-field {
+  .mat-mdc-text-field-wrapper {
+    background-color: #faf7f2 !important;
+    border-radius: 10px !important;
+  }
+
+  .mat-icon {
+    color: $earth;
+    margin-right: 8px;
+    font-size: 1.25rem;
+  }
+}
+
+.form-footer {
+  margin-top: 1.5rem;
+
+  .privacy-note {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.775rem;
+    color: $text-muted;
+    margin-bottom: 1.5rem;
+
+    .lock-icon {
+      font-size: 1rem;
+      color: $forest-green;
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btn-submit {
+    background-color: $earth !important;
+    color: $beige !important;
+    font-family: $font-main !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.08em !important;
+    padding: 0.9rem 2.5rem !important;
+    border-radius: 50px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    box-shadow: $shadow-earth !important;
+    transition: $transition-smooth !important;
+
+    &:hover:not(:disabled) {
+      background-color: $earth-hover !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(178, 85, 52, 0.4) !important;
     }
 
-    .content-banner {
-        display: none;
+    &:disabled {
+      background-color: #d1d5db !important;
+      color: #9ca3af !important;
+      box-shadow: none !important;
+    }
+  }
+}
+
+// WhatsApp Direto
+.whatsapp-direct {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(35, 55, 44, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: $forest-green;
+
+  .link-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #128c7e;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    background: rgba(37, 211, 102, 0.1);
+    border-radius: 50px;
+    transition: all 0.2s ease;
+
+    .wp-icon {
+      width: 20px;
+      height: 20px;
     }
 
-    .content-forms {
-        flex: 9;
-        padding: 0 10%;
-        margin: 20px 0;
-        height: 100%;
+    &:hover {
+      background: rgba(37, 211, 102, 0.2);
+      transform: scale(1.02);
     }
+  }
+}
 
-    .brand-contact {
-        width: 180px;
-        margin: 20px;
-    }
+// Opt-out Card
+.optout-screen {
+  padding: 3rem 1rem;
 
-    .content-contact {
-        background-color: $forest-green;
-        padding-bottom: 30px;
-    }
+  .optout-icon {
+    font-size: 3.5rem;
+    color: $earth;
+    margin-bottom: 1rem;
+  }
 
-    .forms {
-        width: 100%;
-        max-width: 100%;
-    }
+  h3 {
+    font-size: 1.75rem;
+    color: $forest-green;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    color: $text-muted;
+    max-width: 440px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+// Responsividade
+@media (max-width: 768px) {
+  .contact-form-panel {
+    padding: 2rem 1rem;
+  }
+
+  .form-container-box {
+    padding: 2rem 1.25rem;
+  }
+
+  .radio-selector {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .btn-submit {
+    width: 100% !important;
+    justify-content: center !important;
+  }
 }

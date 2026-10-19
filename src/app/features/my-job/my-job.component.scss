@@ -1,93 +1,194 @@
-@import '../../../styles.scss';
+@use '../../../variables' as *;
 
-.content-job {
-    width: 100%;
-    padding-top: 100px;
-    font-family: $fontPattern;
+.services-section {
+  width: 100%;
+  padding: 6rem 0;
+  background-color: #ffffff;
 }
 
-
-.container-content {
-    margin: auto;
-    max-width: 64rem;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+.services-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-.header-flex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 30px;
+.section-header {
+  margin-bottom: 3.5rem;
 }
 
-.header-flex p {
-    width: 45rem;
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
-h2 {
-    font-size: 2rem;
-    color: $earth;
-}
+.service-card {
+  background: #faf7f2;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(35, 55, 44, 0.08);
+  box-shadow: $shadow-sm;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  display: flex;
+  flex-direction: column;
 
-.card-text {
-    font-size: 1rem;
-    font-weight: 500;
-}
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-lg;
+    border-color: rgba(178, 85, 52, 0.35);
 
-.example-card {
-    max-width: 320px;
-    overflow: hidden;
-    transition: transform .5s ease-in-out;
-    margin: 0 30px;
-}
+    .card-img {
+      transform: scale(1.06);
+    }
 
-.example-card:hover {
-    transform: scale(1.1);
+    .btn-card-action {
+      background: $earth;
+      color: #ffffff;
+
+      .material-icons {
+        transform: translateX(4px);
+      }
+    }
   }
 
-.cards {
-    margin-top: 50px;
+  &.featured {
+    border-color: rgba(178, 85, 52, 0.3);
+    background: linear-gradient(180deg, #faf7f2 0%, #f4ede0 100%);
+  }
+}
+
+.card-media {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(35, 55, 44, 0.85);
+    backdrop-filter: blur(8px);
+    color: $beige;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+
+    &.badge-featured {
+      background: $earth;
+      color: #ffffff;
+    }
+  }
+}
+
+.card-content {
+  padding: 1.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-heading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: $forest-green;
+  margin-bottom: 0.85rem;
+}
+
+.card-desc {
+  font-size: 0.925rem;
+  color: #4a5951;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.card-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+
+  li {
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: $forest-green;
+
+    .check-icon {
+      font-size: 1.1rem;
+      color: $earth;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.card-action {
+  margin-top: auto;
+
+  .btn-card-action {
+    display: inline-flex;
+    align-items: center;
     justify-content: space-between;
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    background: rgba(35, 55, 44, 0.08);
+    color: $forest-green;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+
+    .material-icons {
+      font-size: 1rem;
+      transition: transform 0.25s ease;
+    }
+  }
 }
 
-mat-card-title {
-    color: $earth;
+// Responsividade
+@media (max-width: 991.98px) {
+  .services-section {
+    padding: 4rem 0;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
 }
 
-// Adicionando a query de mídia para telas menores que 375px
-@media (max-width: 375px) {
-    .content-job {
-        padding-top: 70px;
-    }
+@media (max-width: 650px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
 
-    .header-flex {
-        padding: 0;
-    }
+  .card-media {
+    height: 200px;
+  }
 
-    .header-flex p {
-        width: auto;
-        text-align: center;
-        padding: 0 20px;
-    }
-
-    h2{
-        font-size: 1.5rem;
-    }
-
-    .example-card {
-        max-width: 300px;
-        margin: 20px;
-    }
-
-    .cards {
-        margin-top: 0;
-        display: flex;
-        flex-direction: column;
-    }
+  .card-content {
+    padding: 1.5rem;
+  }
 }
-  

@@ -1,40 +1,86 @@
-<mat-toolbar [ngClass]="{'scrolled': isScrolled}">
-  <div class="content">
-    <div class="flex">
-      <a href="#">
-        <img [src]="isScrolled ? '../../../../assets/image/brand1.svg' : '../../../../assets/image/brand.svg'"
-          alt="brand rosa barros">
+<header class="main-header" [class.scrolled]="isScrolled">
+  <div class="header-container">
+    <div class="header-inner">
+      <!-- Logo Marca -->
+      <a href="#" class="brand-link" (click)="closeMenu()">
+        <img [src]="isScrolled ? 'assets/image/brand1.svg' : 'assets/image/brand.svg'"
+             alt="Rosa Barros Personal Chef"
+             class="brand-img">
       </a>
-      <nav class="navbar navbar-dark bg-dark d-lg-none">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" (click)="toggleMenu()" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
+
+      <!-- Menu Desktop -->
+      <nav class="desktop-nav d-none d-lg-flex" aria-label="Navegação Principal">
+        <a href="#" class="nav-item">INÍCIO</a>
+        <a href="#about" class="nav-item">SOBRE</a>
+        <a href="#my-job" class="nav-item">MEU TRABALHO</a>
+        <a href="#gallery" class="nav-item">GALERIA</a>
+        <a href="#events" class="nav-item">EVENTOS</a>
+        <a href="/contact" class="nav-item btn-contact">CONTATO</a>
       </nav>
-      <div class="offcanvas offcanvas-end text-dark" [class.show]="isMenuOpen" tabindex="-1"
-        id="navbarToggleExternalContent">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title">Menu</h5>
-          <button type="button" class="btn-close" (click)="toggleMenu()" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <a href="#" class="custom-button" (click)="closeMenu()">HOME</a>
-          <a href="#about" class="custom-button" (click)="closeMenu()">SOBRE</a>
-          <a href="#my-job" class="custom-button" (click)="closeMenu()">MEU TRABALHO</a>
-          <a href="#gallery" class="custom-button" (click)="closeMenu()">GALERIA</a>
-          <a href="#events" class="custom-button" (click)="closeMenu()">EVENTOS</a>
-          <a href="/contact" class="custom-button" (click)="closeMenu()">CONTATO</a>
-        </div>
+
+      <!-- Botão Hambúrguer Mobile -->
+      <button class="mobile-toggle d-lg-none"
+              type="button"
+              (click)="toggleMenu()"
+              [class.open]="isMenuOpen"
+              aria-label="Abrir menu de navegação">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Backdrop Mobile -->
+  <div class="mobile-backdrop" [class.show]="isMenuOpen" (click)="closeMenu()"></div>
+
+  <!-- Gaveta Mobile / Offcanvas -->
+  <div class="mobile-drawer" [class.open]="isMenuOpen">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <img src="assets/image/brand1.svg" alt="Rosa Barros" class="drawer-logo">
+        <span class="drawer-tagline">Personal Chef & Consultoria</span>
       </div>
-      <div class="menu-links d-none d-lg-block">
-        <a href="#" class="custom-button">HOME</a>
-        <a href="#about" class="custom-button">SOBRE</a>
-        <a href="#my-job" class="custom-button">MEU TRABALHO</a>
-        <a href="#gallery" class="custom-button">GALERIA</a>
-        <a href="#events" class="custom-button">EVENTOS</a>
-        <a href="/contact" class="custom-button">CONTATO</a>
+      <button type="button" class="btn-close-custom" (click)="closeMenu()" aria-label="Fechar menu">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <nav class="drawer-nav">
+        <a href="#" class="drawer-link" (click)="closeMenu()">
+          <span class="link-text">INÍCIO</span>
+          <span class="material-icons arrow">arrow_forward_ios</span>
+        </a>
+        <a href="#about" class="drawer-link" (click)="closeMenu()">
+          <span class="link-text">SOBRE</span>
+          <span class="material-icons arrow">arrow_forward_ios</span>
+        </a>
+        <a href="#my-job" class="drawer-link" (click)="closeMenu()">
+          <span class="link-text">MEU TRABALHO</span>
+          <span class="material-icons arrow">arrow_forward_ios</span>
+        </a>
+        <a href="#gallery" class="drawer-link" (click)="closeMenu()">
+          <span class="link-text">GALERIA</span>
+          <span class="material-icons arrow">arrow_forward_ios</span>
+        </a>
+        <a href="#events" class="drawer-link" (click)="closeMenu()">
+          <span class="link-text">EVENTOS</span>
+          <span class="material-icons arrow">arrow_forward_ios</span>
+        </a>
+        <a href="/contact" class="drawer-link drawer-cta" (click)="closeMenu()">
+          <span class="link-text">SOLICITAR ORÇAMENTO</span>
+          <span class="material-icons">restaurant_menu</span>
+        </a>
+      </nav>
+
+      <div class="drawer-footer">
+        <a href="https://api.whatsapp.com/send?phone=5511953991001" target="_blank" class="drawer-whatsapp-btn">
+          <span class="material-icons">chat</span>
+          <span>Falar no WhatsApp</span>
+        </a>
+        <p class="drawer-phone">(11) 95399-1001</p>
       </div>
     </div>
   </div>
-</mat-toolbar>
+</header>

@@ -1,173 +1,266 @@
-@import '../../../styles.scss';
+@use '../../../variables' as *;
 
-footer {
-    width: 100%;
-    margin: auto;
-    font-family: $fontPattern;
+.main-footer {
+  width: 100%;
+  background-color: $forest-green;
+  color: $beige;
+  padding-top: 5rem;
+  border-top: 2px solid $earth;
+}
+
+.footer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.footer-brand-col {
+  .footer-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .footer-tagline {
+    font-size: 0.925rem;
+    color: rgba(241, 233, 212, 0.85);
+    line-height: 1.7;
+    max-width: 400px;
+    margin-bottom: 1.75rem;
+  }
+}
+
+// Card WhatsApp
+.whatsapp-cta-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(241, 233, 212, 0.08);
+  border: 1px solid rgba(241, 233, 212, 0.18);
+  border-radius: 14px;
+  padding: 0.85rem 1.25rem;
+  text-decoration: none;
+  color: $beige;
+  transition: all 0.3s ease;
+  max-width: 320px;
+
+  &:hover {
+    background: rgba(241, 233, 212, 0.16);
+    border-color: #25d366;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+    .card-arrow {
+      transform: translateX(4px);
+      color: #25d366;
+    }
+  }
+
+  .whatsapp-icon-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #25d366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    .social-img-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .whatsapp-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: $forest-green;
-    color: $beige;
-    padding-top: 50px;
+
+    .cta-subtitle {
+      font-size: 0.725rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.8;
+    }
+
+    .cta-phone {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+  }
+
+  .card-arrow {
+    margin-left: auto;
+    font-size: 1.1rem;
+    opacity: 0.6;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
 }
 
-.content {
-    width: 100%;
-    height: 400px;
-}
+// Navegação Footer
+.footer-heading {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $earth;
+  margin-bottom: 1.5rem;
+  position: relative;
 
-.copyright {
-    width: 100%;
-    height: 85px;
+  &::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
     background: $earth;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px solid $beige;
+    margin-top: 6px;
+    border-radius: 2px;
+  }
 }
 
-.flex {
-    max-width: 64rem;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 10px;
-}
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 
-.card-title {
-    color: $earth;
-    font-size: 1.2rem;
+  .footer-link {
+    color: rgba(241, 233, 212, 0.85);
+    text-decoration: none;
+    font-size: 0.9rem;
     font-weight: 500;
-    padding-top: 50px;
+    transition: all 0.2s ease;
+    display: inline-block;
+
+    &:hover {
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+
+    &.highlight {
+      color: $earth;
+      font-weight: 600;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
 }
 
-h3 {
-    margin: 0 0 5px 0;
-    font-size: 1.5rem;
-    font-weight: 300;
-}
+// Redes Sociais
+.footer-contact-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: rgba(241, 233, 212, 0.85);
+  margin-bottom: 0.85rem;
 
-h4 {
-    margin: 0;
-    padding-left: 10px;
-    font-weight: 700;
-    color: $beige;
-}
+  .info-icon {
+    font-size: 1.15rem;
+    color: $earth;
+    flex-shrink: 0;
+  }
 
-ul,
-a,
-li {
-    list-style-type: none;
-    padding: 3px 0;
-    margin: 0;
+  .email-link {
     color: $beige;
     text-decoration: none;
-    font-weight: 500;
-    transition: all .3s ease-in-out;
+    word-break: break-all;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  }
 }
 
-li:hover {
+.social-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+
+  .social-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(241, 233, 212, 0.1);
+    border: 1px solid rgba(241, 233, 212, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+
+    .social-img-icon {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    &:hover {
+      background: $earth;
+      transform: translateY(-3px) scale(1.08);
+      border-color: $earth;
+      box-shadow: 0 6px 16px rgba(178, 85, 52, 0.4);
+    }
+  }
+}
+
+// Barra de Copyright
+.copyright-bar {
+  background-color: rgba(23, 36, 29, 0.8);
+  border-top: 1px solid rgba(241, 233, 212, 0.1);
+  padding: 1.25rem 0;
+}
+
+.copyright-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.825rem;
+  color: rgba(241, 233, 212, 0.7);
+
+  .author {
     color: $earth;
     font-weight: 600;
+  }
 }
 
-.example-card {
-    max-width: 400px;
-    background: none;
-    box-shadow: none;
+// Responsividade
+@media (max-width: 768px) {
+  .main-footer {
+    padding-top: 3.5rem;
+  }
+
+  .footer-container {
+    padding-bottom: 2.5rem;
+  }
+
+  .copyright-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
 }
 
-.example-card:hover {
-    cursor: pointer;
-}
-
-.mat-mdc-card-header {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-}
-
-.example-header-image {
-    background-size: cover;
-    padding: 0;
-    margin: 0;
-}
-
-.facebook-avatar {
-    background-image: url('../../../assets/image/icones/facebook.png');
-}
-
-.instagram-avatar {
-    margin-right: 20px;
-    background-image: url('../../../assets/image/icones/instagram.png');
-}
-
-.whatsapp-avatar {
-    background-image: url('../../../assets/image/icones/whatsapp.png');
-}
-
-// Adicionando a query de mídia para telas menores que 375px
-@media (max-width: 375px) {
-    footer{
-        width: 100%;
-        height: 100%;
-        padding-top: 0;
+@media (max-width: 576px) {
+  .footer-brand-col {
+    .footer-logo {
+      width: 130px;
     }
-    
-    .content {
-        width: 100%;
-        height: 100%;
-        padding: 0;
-    }
+  }
 
-    footer .row {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    footer .card-title {
-        padding-top: 20px;
-    }
-
-    footer .list-item {
-        margin-bottom: 10px;
-    }
-
-    .col-4 {
-        width: 100%;
-        text-align: center;
-    }
-
-    .col-4 h2.card-title {
-        padding-top: 20px;
-    }
-
-    .col-4 h3 {
-        margin-bottom: 5px;
-    }
-
-    .example-card {
-        margin-bottom: 20px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .example-card mat-card-header {
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-    }
-
-    .whatsapp-avatar {
-        margin-right: 10px;
-    }
-
-    .col-4 h4 {
-        margin: 0;
-        font-size: 1rem;
-    }
+  .whatsapp-cta-card {
+    width: 100%;
+    max-width: 100%;
+  }
 }

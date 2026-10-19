@@ -1,60 +1,188 @@
-html,
-body {
-    height: 100%;
+@use 'variables' as *;
+
+// Reset & Base Styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    font-family: fontPattern, sans-serif;
+  margin: 0;
+  min-height: 100%;
+  font-family: $font-main;
+  color: $forest-green;
+  background-color: #faf7f2;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-$forest-green: #23372C;
-$earth: #B25534;
-$beige: #F1E9D4;
-$fontPattern: 'montserrat';
+// Modern Scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
 
-//CONFIGURAÇÃO SNACK-BAR
-:root {
+::-webkit-scrollbar-track {
+  background: $beige;
+}
 
-    .mat-mdc-snack-bar-container .mdc-snackbar__surface {
-        width: 100%;
-        max-width: 100%;
-    }
+::-webkit-scrollbar-thumb {
+  background: $earth;
+  border-radius: 5px;
+}
 
-    // .mat-mdc-snack-bar-container .mdc-snackbar__label {
-    //     color: var(--mdc-snackbar-supporting-text-color);
-    // }
+::-webkit-scrollbar-thumb:hover {
+  background: $earth-hover;
+}
 
-    .cdk-overlay-pane {
-        position: absolute;
-        width: 100%;
-    }
+// Global Typography & Section Headers
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-main;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+}
 
-    //MENSAGEM DE SUCESSO
-    .success-snack-bar {
-        --mdc-snackbar-container-color: #45c32f;
-        --mdc-snackbar-supporting-text-color: $forest-green;
-        text-align: center;
-    }
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $earth;
+  margin-bottom: 0.5rem;
+  position: relative;
 
-    //MENSAGEM DE ALERTA
-    .alert-snack-bar {
-        --mdc-snackbar-container-color: #e5b804;
-        --mdc-snackbar-supporting-text-color: $forest-green;
-        text-align: center;
-    }
+  &::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: $earth;
+    margin: 6px auto 0;
+    border-radius: 2px;
+  }
+}
 
-    //MENSAGEM DE ERRO
-    .danger-snack-bar {
-        --mdc-snackbar-container-color: #c32f2f;
-        text-align: center;
-    }
+.section-title {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  color: $forest-green;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
 
-    .mdc-form-field > label {
-        color: $beige !important;
-    }
+.section-lead {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  color: $text-muted;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
 
-    .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:not(:checked)+.mdc-radio__background .mdc-radio__outer-circle {
-        border-color: $beige !important;
-    }
+// Angular Material & Global Overrides
+.mat-typography {
+  font-family: $font-main !important;
+}
+
+// Botões Customizados Globais
+.btn-earth {
+  background-color: $earth !important;
+  color: $beige !important;
+  font-family: $font-main !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  padding: 0.75rem 2rem !important;
+  border-radius: 50px !important;
+  border: none !important;
+  box-shadow: $shadow-earth !important;
+  transition: $transition-smooth !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $earth-hover !important;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(178, 85, 52, 0.35) !important;
+    color: #ffffff !important;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-outline-beige {
+  background: transparent !important;
+  color: $beige !important;
+  border: 2px solid $beige !important;
+  font-family: $font-main !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  padding: 0.75rem 2rem !important;
+  border-radius: 50px !important;
+  transition: $transition-smooth !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $beige !important;
+    color: $forest-green !important;
+    transform: translateY(-2px);
+  }
+}
+
+// Configurações Snack-Bar
+.mat-mdc-snack-bar-container {
+  .mdc-snackbar__surface {
+    border-radius: 12px !important;
+    box-shadow: $shadow-lg !important;
+    font-family: $font-main !important;
+  }
+}
+
+.success-snack-bar {
+  --mdc-snackbar-container-color: #2e7d32;
+  --mdc-snackbar-supporting-text-color: #ffffff;
+  text-align: center;
+}
+
+.alert-snack-bar {
+  --mdc-snackbar-container-color: #ed6c02;
+  --mdc-snackbar-supporting-text-color: #ffffff;
+  text-align: center;
+}
+
+.danger-snack-bar {
+  --mdc-snackbar-container-color: #d32f2f;
+  --mdc-snackbar-supporting-text-color: #ffffff;
+  text-align: center;
+}
+
+// Dialog Global
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 16px !important;
+  background-color: #fff !important;
+  padding: 1.5rem !important;
+  box-shadow: $shadow-lg !important;
+  font-family: $font-main !important;
+}
+
+// Ajustes de ancoragem suave para cabeçalho fixo
+[id] {
+  scroll-margin-top: 90px;
 }

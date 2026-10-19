@@ -1,62 +1,107 @@
-<div class="content-events">
-    <div class="header-flex">
-        <h2>EVENTOS</h2>
-        <p class="text-center mt-3">
-            Desfrute de uma experiência gastronômica excepcional com a Chef Rosa Barros em seu próximo evento. Desde a
-            seleção dos ingredientes até o serviço de mesa, ela cuida de todos os detalhes, garantindo pratos deliciosos
-            e uma apresentação impecável. Confie na expertise de Rosa Barros para tornar seu evento verdadeiramente
-            inesquecível.
-        </p>
+<section class="events-section" id="events">
+  <div class="events-container">
+    <!-- Cabeçalho -->
+    <div class="section-header text-center">
+      <span class="section-eyebrow">BUFFET & CONSULTORIA PARA EVENTOS</span>
+      <h2 class="section-title">EVENTOS EXCLUSIVOS</h2>
+      <p class="section-lead">
+        Desfrute de uma experiência gastronômica impecável com a Chef Rosa Barros. Da seleção dos ingredientes de excelência ao serviço acolhedor e apresentação sofisticada.
+      </p>
     </div>
 
-    <div class="row row-cols-1 row-cols-md-2 g-4 content-cards">
-        <div class="col">
-            <div class="card">
-                <img ngSrc="../../../assets/image/events/social.png" style="position: relative;" fill loading="lazy" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Eventos Sociais</h5>
-                    <p class="card-text">
-                        Mais sabor e requinte para festas de aniversário, batizados, casamentos, chás de bebê e chás de
-                        revelação.
-                    </p>
-                </div>
-            </div>
+    <!-- Grid de Eventos 2x2 -->
+    <div class="events-grid">
+      <!-- Evento 1: Sociais -->
+      <article class="event-card">
+        <div class="event-media">
+          <img src="assets/image/events/social.png" alt="Gastronomia para Eventos Sociais" class="event-img" loading="lazy">
+          <span class="event-tag">Celebrações</span>
         </div>
-        <div class="col">
-            <div class="card">
-                <img ngSrc="../../../assets/image/events/corporativo.png" style="position: relative;" fill loading="lazy" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Eventos Corporativos</h5>
-                    <p class="card-text">
-                        Surpreenda o paladar de clientes e colaboradores em workshops, feiras, inaugurações, Coffee
-                        breaks e reuniões.
-                    </p>
-                </div>
-            </div>
+        <div class="event-body">
+          <h3 class="event-title">Eventos Sociais</h3>
+          <p class="event-desc">
+            Mais sabor e requinte para ocasiões especiais: casamentos intimistas, festas de aniversário, batizados, noivados, chás de bebê e celebrações memoráveis com familiares e amigos.
+          </p>
+          <div class="event-pills">
+            <span class="pill">Casamentos Intimistas</span>
+            <span class="pill">Aniversários</span>
+            <span class="pill">Batizados</span>
+          </div>
+          <a href="/contact" class="event-cta">
+            <span>SOLICITAR CARDÁPIO</span>
+            <span class="material-icons">arrow_forward</span>
+          </a>
         </div>
-        <div class="col">
-            <div class="card">
-                <img src="../../../assets/image/events/cultural.png" style="position: relative;" fill loading="lazy" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Eventos Culturais</h5>
-                    <p class="card-text">
-                        Concursos, Entrevista coletiva, Tarde de autógrafos, Torneio, Apresentações de
-                        dança, Sessões de Leitura, Demonstrações de Artesanato.
-                    </p>
-                </div>
-            </div>
+      </article>
+
+      <!-- Evento 2: Corporativos -->
+      <article class="event-card">
+        <div class="event-media">
+          <img src="assets/image/events/corporativo.png" alt="Gastronomia para Eventos Corporativos" class="event-img" loading="lazy">
+          <span class="event-tag tag-corporate">Empresarial</span>
         </div>
-        <div class="col">
-            <div class="card">
-                <img src="../../../assets/image/events/tematico.png" style="position: relative;" fill loading="lazy" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Eventos Temáticos</h5>
-                    <p class="card-text">
-                        Seu evento ganha ainda mais personalidade com o nosso buffet de pratos árabes, comidas de
-                        boteco, festas juninas e festas nordestinas.
-                    </p>
-                </div>
-            </div>
+        <div class="event-body">
+          <h3 class="event-title">Eventos Corporativos</h3>
+          <p class="event-desc">
+            Surpreenda o paladar de clientes, executivos e parceiros em workshops, convenções, inaugurações, coffee breaks de alto padrão e jantares de encerramento.
+          </p>
+          <div class="event-pills">
+            <span class="pill">Coffee Break Premium</span>
+            <span class="pill">Workshops</span>
+            <span class="pill">Jantares Executivos</span>
+          </div>
+          <a href="/contact" class="event-cta">
+            <span>ORÇAMENTO CORPORATIVO</span>
+            <span class="material-icons">arrow_forward</span>
+          </a>
         </div>
+      </article>
+
+      <!-- Evento 3: Culturais -->
+      <article class="event-card">
+        <div class="event-media">
+          <img src="assets/image/events/cultural.png" alt="Gastronomia para Eventos Culturais" class="event-img" loading="lazy">
+          <span class="event-tag">Arte & Cultura</span>
+        </div>
+        <div class="event-body">
+          <h3 class="event-title">Eventos Culturais</h3>
+          <p class="event-desc">
+            Criações autorais para vernissages, lançamentos literários, mostras artísticas, noites de autógrafos e encontros criativos, onde a culinária harmoniza com a atmosfera artística.
+          </p>
+          <div class="event-pills">
+            <span class="pill">Vernissages</span>
+            <span class="pill">Lançamentos</span>
+            <span class="pill">Coquetel Artístico</span>
+          </div>
+          <a href="/contact" class="event-cta">
+            <span>CONSULTAR FORMATOS</span>
+            <span class="material-icons">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Evento 4: Temáticos -->
+      <article class="event-card">
+        <div class="event-media">
+          <img src="assets/image/events/tematico.png" alt="Buffet Temático e Culinária Típica" class="event-img" loading="lazy">
+          <span class="event-tag tag-theme">Experiências</span>
+        </div>
+        <div class="event-body">
+          <h3 class="event-title">Eventos Temáticos</h3>
+          <p class="event-desc">
+            Seu evento ganha personalidade autêntica com nossos buffets temáticos: banquetes árabes, comida de boteco gourmet, noites nordestinas, culinária italiana e festejos sazonais.
+          </p>
+          <div class="event-pills">
+            <span class="pill">Banquete Árabe</span>
+            <span class="pill">Boteco Gourmet</span>
+            <span class="pill">Cozinha Nordestina</span>
+          </div>
+          <a href="/contact" class="event-cta">
+            <span>VER CARDÁPIOS TEMÁTICOS</span>
+            <span class="material-icons">arrow_forward</span>
+          </a>
+        </div>
+      </article>
     </div>
-</div>
+  </div>
+</section>
