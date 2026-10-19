@@ -2,7 +2,9 @@
 
 .contact-page {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
   background-color: #faf7f2;
   display: flex;
 }
@@ -10,16 +12,16 @@
 .contact-layout {
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
 }
 
-// Painel Lateral Visual (Desktop)
+// Painel Lateral (Desktop)
 .contact-visual-panel {
-  flex: 5;
+  flex: 4.5;
   position: relative;
   background-color: $forest-green;
   overflow: hidden;
-  padding: 4rem 3rem;
+  padding: clamp(1.5rem, 3vh, 2.5rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,85 +39,92 @@
   .visual-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(23, 36, 29, 0.95) 0%, rgba(35, 55, 44, 0.85) 100%);
+    background: linear-gradient(135deg, rgba(23, 36, 29, 0.95) 0%, rgba(35, 55, 44, 0.88) 100%);
     z-index: 1;
   }
 
   .visual-content {
     position: relative;
     z-index: 2;
-    max-width: 480px;
+    max-width: 420px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
   }
 
   .visual-logo-link {
     display: inline-block;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .visual-logo {
-    width: 160px;
+    width: 130px;
     height: auto;
   }
 
   .visual-badge {
     display: inline-block;
-    padding: 0.35rem 1rem;
+    align-self: flex-start;
+    padding: 0.25rem 0.75rem;
     background: rgba(178, 85, 52, 0.25);
     border: 1px solid rgba(178, 85, 52, 0.5);
     border-radius: 50px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: $beige;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
   }
 
   .visual-title {
-    font-size: 2.2rem;
+    font-size: clamp(1.4rem, 2vw, 1.85rem);
     font-weight: 700;
     color: #ffffff;
-    line-height: 1.2;
-    margin-bottom: 1.25rem;
+    line-height: 1.25;
+    margin-bottom: 0.65rem;
   }
 
   .visual-desc {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: rgba(241, 233, 212, 0.85);
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
   }
 
   .visual-perks {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    margin-bottom: 3rem;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
 
     .perk-item {
       display: flex;
-      align-items: flex-start;
-      gap: 14px;
+      align-items: center;
+      gap: 10px;
 
       .perk-icon {
         color: $earth;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         background: rgba(241, 233, 212, 0.1);
-        padding: 8px;
+        padding: 6px;
         border-radius: 50%;
       }
 
-      strong {
-        display: block;
-        color: #ffffff;
-        font-size: 0.925rem;
-      }
+      .perk-text {
+        strong {
+          display: block;
+          color: #ffffff;
+          font-size: 0.825rem;
+          line-height: 1.2;
+        }
 
-      p {
-        margin: 2px 0 0;
-        font-size: 0.825rem;
-        color: rgba(241, 233, 212, 0.75);
+        span {
+          font-size: 0.725rem;
+          color: rgba(241, 233, 212, 0.75);
+        }
       }
     }
   }
@@ -123,13 +132,12 @@
   .btn-back-home {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     color: $beige;
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 0.05em;
-    padding: 0.6rem 1.2rem;
+    padding: 0.45rem 0.9rem;
     background: rgba(241, 233, 212, 0.1);
     border: 1px solid rgba(241, 233, 212, 0.2);
     border-radius: 50px;
@@ -139,155 +147,182 @@
       background: $earth;
       color: #ffffff;
       border-color: $earth;
-      transform: translateX(-4px);
+      transform: translateX(-3px);
     }
   }
 }
 
-// Painel do Formulário (Direita)
+// Painel do Formulário
 .contact-form-panel {
-  flex: 7;
-  padding: 3rem 2rem;
+  flex: 7.5;
+  padding: clamp(1rem, 2vh, 1.75rem) clamp(1rem, 2vw, 2rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-y: auto;
+  height: 100%;
+  overflow: hidden;
 }
 
 .mobile-top-bar {
-  width: 100%;
-  max-width: 580px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-
-  .btn-mobile-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: $forest-green;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.85rem;
-    padding: 0.4rem 0.85rem;
-    background: rgba(35, 55, 44, 0.08);
-    border-radius: 50px;
-  }
-
-  .mobile-logo {
-    width: 110px;
-    height: auto;
-  }
+  display: none;
 }
 
 .form-container-box {
   width: 100%;
-  max-width: 620px;
+  max-width: 650px;
   background: #ffffff;
-  border-radius: 20px;
-  padding: 2.75rem 2.5rem;
+  border-radius: 16px;
+  padding: clamp(1rem, 2vh, 1.6rem) clamp(1.25rem, 2.5vw, 2rem);
   box-shadow: $shadow-md;
   border: 1px solid rgba(35, 55, 44, 0.08);
 }
 
 .form-header {
-  margin-bottom: 2rem;
+  margin-bottom: 0.85rem;
+
+  .header-top-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.725rem;
+    margin-bottom: 0.2rem;
+    &::after { display: none; }
+  }
 
   .form-heading {
-    font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+    font-size: clamp(1.35rem, 1.8vw, 1.65rem);
     color: $forest-green;
     font-weight: 700;
-    margin: 0.5rem 0 0.5rem;
+    margin: 0;
   }
 
   .form-subheading {
-    font-size: 0.925rem;
+    font-size: 0.8rem;
     color: $text-muted;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    line-height: 1.35;
+    margin: 0.35rem 0 0;
   }
 }
 
-// Radio Selector
 .radio-selector {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 6px;
   background: #faf7f2;
-  padding: 0.75rem 1.25rem;
-  border-radius: 12px;
+  padding: 0.3rem 0.65rem;
+  border-radius: 8px;
   border: 1px solid rgba(35, 55, 44, 0.1);
 
   .radio-label {
-    font-size: 0.85rem;
+    font-size: 0.725rem;
     font-weight: 600;
     color: $forest-green;
   }
 
   .custom-radio-group {
     display: flex;
-    gap: 1.25rem;
+    gap: 0.35rem;
+
+    ::ng-deep .mdc-radio { padding: 2px; }
+    ::ng-deep .mdc-label { font-size: 0.725rem; padding-left: 2px; }
   }
 }
 
-// Estilos dos campos
 .custom-field {
-  .mat-mdc-text-field-wrapper {
+  ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+    height: 15px;
+    min-height: 15px;
+    font-size: 0.68rem;
+    padding: 0 4px;
+  }
+
+  ::ng-deep .mat-mdc-text-field-wrapper {
     background-color: #faf7f2 !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
+    padding: 0 10px;
+  }
+
+  ::ng-deep .mat-mdc-form-field-flex {
+    height: 46px;
+    align-items: center;
+  }
+
+  ::ng-deep .mat-mdc-form-field-infix {
+    padding-top: 8px !important;
+    padding-bottom: 6px !important;
+    min-height: 38px !important;
+  }
+
+  ::ng-deep input.mat-mdc-input-element,
+  ::ng-deep .mat-mdc-select-value {
+    font-size: 0.825rem;
   }
 
   .mat-icon {
     color: $earth;
-    margin-right: 8px;
-    font-size: 1.25rem;
+    margin-right: 6px;
+    font-size: 1.1rem;
+    width: 1.1rem;
+    height: 1.1rem;
   }
 }
 
-.form-footer {
-  margin-top: 1.5rem;
+.form-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(35, 55, 44, 0.08);
 
-  .privacy-note {
-    display: flex;
+  .link-wp-inline {
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.775rem;
-    color: $text-muted;
-    margin-bottom: 1.5rem;
+    color: #128c7e;
+    text-decoration: none;
+    font-size: 0.785rem;
+    padding: 0.3rem 0.65rem;
+    background: rgba(37, 211, 102, 0.08);
+    border-radius: 50px;
+    transition: all 0.2s ease;
 
-    .lock-icon {
-      font-size: 1rem;
-      color: $forest-green;
+    .wp-icon-mini {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover {
+      background: rgba(37, 211, 102, 0.18);
     }
   }
 
-  .action-buttons {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .btn-submit {
+  .btn-submit-compact {
     background-color: $earth !important;
     color: $beige !important;
     font-family: $font-main !important;
     font-weight: 700 !important;
-    font-size: 0.9rem !important;
-    letter-spacing: 0.08em !important;
-    padding: 0.9rem 2.5rem !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.05em !important;
+    padding: 0.55rem 1.5rem !important;
     border-radius: 50px !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 8px !important;
+    gap: 6px !important;
     box-shadow: $shadow-earth !important;
-    transition: $transition-smooth !important;
+
+    .material-icons { font-size: 0.95rem; }
 
     &:hover:not(:disabled) {
       background-color: $earth-hover !important;
       color: #ffffff !important;
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(178, 85, 52, 0.4) !important;
     }
 
     &:disabled {
@@ -298,84 +333,74 @@
   }
 }
 
-// WhatsApp Direto
-.whatsapp-direct {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px dashed rgba(35, 55, 44, 0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  color: $forest-green;
-
-  .link-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #128c7e;
-    text-decoration: none;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    background: rgba(37, 211, 102, 0.1);
-    border-radius: 50px;
-    transition: all 0.2s ease;
-
-    .wp-icon {
-      width: 20px;
-      height: 20px;
-    }
-
-    &:hover {
-      background: rgba(37, 211, 102, 0.2);
-      transform: scale(1.02);
-    }
-  }
-}
-
-// Opt-out Card
 .optout-screen {
-  padding: 3rem 1rem;
-
-  .optout-icon {
-    font-size: 3.5rem;
-    color: $earth;
-    margin-bottom: 1rem;
-  }
-
-  h3 {
-    font-size: 1.75rem;
-    color: $forest-green;
-    margin-bottom: 0.75rem;
-  }
-
-  p {
-    color: $text-muted;
-    max-width: 440px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
+  padding: 1.5rem 1rem;
+  .optout-icon { font-size: 2.75rem; color: $earth; margin-bottom: 0.5rem; }
+  h3 { font-size: 1.4rem; color: $forest-green; margin-bottom: 0.5rem; }
+  p { color: $text-muted; max-width: 400px; margin: 0 auto; font-size: 0.85rem; }
 }
 
 // Responsividade
-@media (max-width: 768px) {
-  .contact-form-panel {
-    padding: 2rem 1rem;
+@media (max-width: 991.98px), (max-height: 680px) {
+  .contact-page {
+    height: auto;
+    max-height: none;
+    min-height: 100vh;
+    overflow-y: auto;
   }
 
-  .form-container-box {
-    padding: 2rem 1.25rem;
-  }
-
-  .radio-selector {
+  .contact-layout {
+    height: auto;
     flex-direction: column;
-    gap: 8px;
-    align-items: flex-start;
   }
 
-  .btn-submit {
-    width: 100% !important;
-    justify-content: center !important;
+  .contact-form-panel {
+    height: auto;
+    overflow: visible;
+    padding: 1.5rem 1rem;
+  }
+
+  .mobile-top-bar {
+    width: 100%;
+    max-width: 580px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .btn-mobile-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: $forest-green;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.825rem;
+      padding: 0.35rem 0.75rem;
+      background: rgba(35, 55, 44, 0.08);
+      border-radius: 50px;
+    }
+
+    .mobile-logo { width: 100px; }
+  }
+
+  .form-container-box { padding: 1.5rem 1.25rem; }
+
+  .form-header .header-top-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-action-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+
+    .whatsapp-badge { text-align: center; }
+
+    .btn-submit-compact {
+      width: 100% !important;
+      justify-content: center !important;
+    }
   }
 }
