@@ -55,6 +55,16 @@
     border-color: rgba(178, 85, 52, 0.3);
     background: linear-gradient(180deg, #faf7f2 0%, #f4ede0 100%);
   }
+
+  &.card-tips.active-panel {
+    border-color: $earth;
+    box-shadow: 0 10px 30px rgba(178, 85, 52, 0.2);
+
+    .btn-trigger-tips {
+      background: $earth;
+      color: #ffffff;
+    }
+  }
 }
 
 .card-media {
@@ -102,7 +112,16 @@
   font-size: 1.35rem;
   font-weight: 700;
   color: $forest-green;
+  margin-bottom: 0.5rem;
+}
+
+.card-subheading {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: $earth;
+  letter-spacing: 0.02em;
   margin-bottom: 0.85rem;
+  display: block;
 }
 
 .card-desc {
@@ -151,13 +170,212 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-decoration: none;
+    border: none;
     border-radius: 12px;
+    cursor: pointer;
+    font-family: inherit;
     transition: all 0.25s ease;
 
     .material-icons {
       font-size: 1rem;
       transition: transform 0.25s ease;
     }
+  }
+}
+
+// Painel Expansível de Dicas da Chef
+.chef-tips-showcase {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, margin 0.35s ease;
+  opacity: 0;
+  margin-top: 0;
+
+  &.is-expanded {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 3rem;
+  }
+}
+
+.tips-accordion-inner {
+  overflow: hidden;
+}
+
+.tips-content-box {
+  background: #faf7f2;
+  border: 1px solid rgba(178, 85, 52, 0.25);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: $shadow-md;
+  position: relative;
+}
+
+.tips-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(35, 55, 44, 0.1);
+
+  .tips-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: $earth;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .tips-main-title {
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+    font-weight: 700;
+    color: $forest-green;
+    margin: 0 0 0.5rem;
+    line-height: 1.25;
+  }
+
+  .tips-main-desc {
+    font-size: 0.925rem;
+    color: #4a5951;
+    margin: 0;
+    max-width: 720px;
+    line-height: 1.6;
+  }
+
+  .btn-close-tips {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.45rem 0.9rem;
+    background: rgba(35, 55, 44, 0.08);
+    border: 1px solid rgba(35, 55, 44, 0.15);
+    color: $forest-green;
+    border-radius: 50px;
+    font-size: 0.785rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    .material-icons {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      background: $earth;
+      color: #ffffff;
+      border-color: $earth;
+    }
+  }
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin: 2.25rem 0;
+}
+
+.tip-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.75rem;
+  border: 1px solid rgba(35, 55, 44, 0.08);
+  box-shadow: $shadow-sm;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+    border-color: rgba(178, 85, 52, 0.3);
+
+    .tip-icon-circle {
+      background: $earth;
+      color: #ffffff;
+    }
+  }
+
+  .tip-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .tip-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: rgba(178, 85, 52, 0.35);
+      line-height: 1;
+    }
+
+    .tip-icon-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(35, 55, 44, 0.08);
+      color: $earth;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+
+      .material-icons {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .tip-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: $forest-green;
+    margin: 0 0 0.65rem;
+    line-height: 1.3;
+  }
+
+  .tip-text {
+    font-size: 0.9rem;
+    color: #4a5951;
+    line-height: 1.65;
+    margin: 0;
+  }
+}
+
+.tips-quote-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(35, 55, 44, 0.15);
+
+  .quote-mini-icon {
+    font-size: 1.75rem;
+    color: $earth;
+    opacity: 0.4;
+    margin-bottom: 0.35rem;
+  }
+
+  .quote-phrase {
+    font-style: italic;
+    font-size: 0.925rem;
+    color: $forest-green;
+    max-width: 620px;
+    margin: 0 0 0.35rem;
+    line-height: 1.5;
+  }
+
+  .quote-sign {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: $earth;
+    text-transform: uppercase;
   }
 }
 
@@ -175,6 +393,15 @@
   .section-header {
     margin-bottom: 2.5rem;
   }
+
+  .tips-content-box {
+    padding: 1.75rem;
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }
 
 @media (max-width: 650px) {
@@ -190,5 +417,15 @@
 
   .card-content {
     padding: 1.5rem;
+  }
+
+  .tips-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .tips-content-box {
+    padding: 1.25rem;
   }
 }

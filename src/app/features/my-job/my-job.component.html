@@ -79,39 +79,92 @@
         </div>
       </article>
 
-      <!-- Card 3: Grupo de Estudos & Aulas -->
-      <article class="service-card">
+      <!-- Card 3: Dicas da Chef (Substituindo Aulas & Workshops) -->
+      <article class="service-card card-tips" [class.active-panel]="showTips">
         <div class="card-media">
-          <img src="assets/image/icone01.jpg" alt="Grupo de Estudos Culinários e Workshops" class="card-img">
-          <span class="card-badge">Aulas & Workshops</span>
+          <img src="assets/image/icone01.jpg" alt="Dicas da Chef Rosa Barros - Preparo e técnicas culinárias" class="card-img">
+          <span class="card-badge">Dicas da Chef</span>
         </div>
         <div class="card-content">
-          <h3 class="card-heading">Grupo de Estudos</h3>
+          <h3 class="card-heading">Dicas da Chef</h3>
+          <span class="card-subheading">Segredos que fazem a diferença</span>
           <p class="card-desc">
-            Deseja aprimorar suas habilidades culinárias ou proporcionar um workshop interativo e memorável para amigos e equipes? Aulas personalizadas com foco em técnicas clássicas, harmonizações e segredos de cozinha.
+            Pequenos detalhes transformam um prato. Conheça dicas práticas da Chef Rosa Barros sobre preparo, ingredientes, organização e finalização para deixar suas receitas ainda mais especiais.
           </p>
           <ul class="card-highlights">
             <li>
               <span class="material-icons check-icon">check_circle</span>
-              <span>Aulas práticas individuais ou em pequenos grupos</span>
+              <span>Organização e mise en place para cozinhar melhor</span>
             </li>
             <li>
               <span class="material-icons check-icon">check_circle</span>
-              <span>Técnicas de corte, cocção e finalização</span>
+              <span>Técnicas simples para realçar sabores e texturas</span>
             </li>
             <li>
               <span class="material-icons check-icon">check_circle</span>
-              <span>Degustação harmonizada dos pratos elaborados</span>
+              <span>Cuidados com apresentação e finalização dos pratos</span>
             </li>
           </ul>
           <div class="card-action">
-            <a href="/contact" class="btn-card-action">
-              <span>CONHECER AULAS</span>
-              <span class="material-icons">arrow_forward</span>
-            </a>
+            <button type="button"
+                    class="btn-card-action btn-trigger-tips"
+                    (click)="toggleTips()"
+                    [attr.aria-expanded]="showTips"
+                    aria-controls="chef-tips-panel">
+              <span>{{ showTips ? 'RECOLHER DICAS' : 'VER DICAS' }}</span>
+              <span class="material-icons">{{ showTips ? 'expand_less' : 'tips_and_updates' }}</span>
+            </button>
           </div>
         </div>
       </article>
+    </div>
+
+    <!-- Painel Expansível de Dicas da Chef (Indexável no DOM para SEO) -->
+    <div id="chef-tips-panel"
+         class="chef-tips-showcase"
+         [class.is-expanded]="showTips"
+         [attr.aria-hidden]="!showTips">
+      <div class="tips-accordion-inner">
+        <div class="tips-content-box">
+          <!-- Cabeçalho do Painel de Dicas -->
+          <div class="tips-header">
+            <div class="tips-header-text">
+              <span class="tips-eyebrow">CONTEÚDO & GASTRONOMIA</span>
+              <h3 class="tips-main-title">Dicas da Chef: Segredos que Fazem a Diferença</h3>
+              <p class="tips-main-desc">
+                Técnicas práticas e conhecimentos fundamentais da Chef Rosa Barros para você aprimorar o preparo de alimentos e viver uma experiência gastronômica completa.
+              </p>
+            </div>
+            <button type="button" class="btn-close-tips" (click)="toggleTips()" aria-label="Recolher painel de dicas">
+              <span class="material-icons">close</span>
+              <span class="d-none d-sm-inline">Fechar</span>
+            </button>
+          </div>
+
+          <!-- Grid com as 3 Dicas -->
+          <div class="tips-grid">
+            <article *ngFor="let tip of tips" class="tip-card" [id]="'tip-' + tip.id">
+              <div class="tip-top">
+                <span class="tip-number">{{ tip.number }}</span>
+                <div class="tip-icon-circle">
+                  <span class="material-icons">{{ tip.icon }}</span>
+                </div>
+              </div>
+              <h4 class="tip-title">{{ tip.title }}</h4>
+              <p class="tip-text">{{ tip.text }}</p>
+            </article>
+          </div>
+
+          <!-- Mensagem de Fechamento da Chef -->
+          <div class="tips-quote-footer">
+            <span class="material-icons quote-mini-icon">format_quote</span>
+            <p class="quote-phrase">
+              "A boa gastronomia nasce da atenção aos detalhes e do carinho dedicado a cada etapa do preparo."
+            </p>
+            <span class="quote-sign">— Rosa Barros</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
